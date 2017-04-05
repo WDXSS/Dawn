@@ -78,6 +78,7 @@ public class MainActivity extends BaseActivity {
 
             }
         };
+        //item设置点击事件
         adapter.setOnRecycleItemClick(new BaseAdapter.OnRecycleViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
