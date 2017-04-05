@@ -2,6 +2,7 @@ package com.dawndemo.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import com.dawndemo.Bean.TypeBean;
@@ -48,7 +49,7 @@ public class NavigationActivity extends BaseActivity {
         dropDownView.setonSelectItemLinstener(new DropdownView.OnSelectItemListener() {
             @Override
             public void onSelected(TypeBean model) {
-
+                Log.i("---------", "onSelected: POW 点击的回调 == ");
                 dropDownView.setTitle(model.name, DropdownView.ID_DROPDOWN_ONE);
                 //一级分类
                 if (model.parentId == 0) {

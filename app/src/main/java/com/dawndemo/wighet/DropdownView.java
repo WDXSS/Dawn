@@ -68,11 +68,8 @@ public class DropdownView extends LinearLayout implements BossCustomButton.OnTog
                 break;
         }
     }
-    /**
-     * 当前分类下typeId
-     */
-    private long mCurrentTypeId = 0;
-    /**
+    private long lastId = 0;
+     /**
      * 用于构建分类筛选列表的list，在修改分类后，复制了mTypes
      */
     public List<TypeBean> mMenuList;
@@ -97,18 +94,16 @@ public class DropdownView extends LinearLayout implements BossCustomButton.OnTog
             menu.setMaxChecked(1);
             layout.addView(menu);
         }
-        //
-        //如果“其他”下没有直播，就删除掉，不显示其他   没有加
-        //
         menu.setData(mMenuList, new PopMultistageMenu.OnMenuSelectListener() {
             @Override
             public void onMenuSelect(TypeBean model) {
-                if (mCurrentTypeId != 0 && model.id == mCurrentTypeId) {
+                if (lastId != 0 && model.id == lastId) {
                     mPopWindow.dismiss();
                 } else {
                     mPopWindow.dismiss();
                     mListener.onSelected(model);
                 }
+                lastId = model.id;
             }
         });
         if (v == null) {
