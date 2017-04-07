@@ -38,9 +38,9 @@ public class MainActivity extends BaseActivity {
     private List<MainBean> data;
     private String TAG = "MainActivity";
 
-    private String[] titles = {"NavigationActivity"};
-    private String[] des = {"BottomNavigationView extends Framelayout"};
-    private String[] classNames = {NavigationActivity.class.getName()};
+    private String[] titles = {"NavigationActivity","NavigationBarActivity"};
+    private String[] des = {"BottomNavigationView extends FramentLayout","need to and view page  fragment ,scroll"};
+    private String[] classNames = {NavigationActivity.class.getName(),NavigationBarActivity.class.getName()};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

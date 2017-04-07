@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/m1"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="主页"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/m2"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_upload"
+        android:title="旅游"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/m3"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_media_play"
+        android:title="脚印"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/m4"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="心语"
+        app:showAsAction="ifRoom"/>
+</menu>
