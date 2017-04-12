@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 导航栏:使用新的空间
+ * 自定DropDownView 下拉显示
  * Created by zc on 2017/3/30.
  */
 

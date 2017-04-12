@@ -29,6 +29,10 @@ import butterknife.ButterKnife;
  * ↳	android.widget.FrameLayout
  * ↳	android.support.design.widget.BottomNavigationView
  * <p>
+ * do it:
+ * method 1: menu.xml ,
+ *           onClick : BottomNavigationView.OnNavigationItemSelectedListener
+ * method 2: 代码里实现
  * Created by zc on 2017/4/5.
  */
 
