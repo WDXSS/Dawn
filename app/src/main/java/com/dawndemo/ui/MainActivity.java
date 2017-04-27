@@ -93,7 +93,6 @@ public class MainActivity extends BaseActivity {
             }
         });
         recycler.setAdapter(adapter);
-
     }
 
     @OnClick({R.id.textView, R.id.recycler})

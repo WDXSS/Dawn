@@ -7,4 +7,5 @@ package com.dawndemo.util;
 public class BundleKey {
     public static final String ID = "extra_id";
     public static final String NAME = "extra_name";
+    public static final String USER_TYPE = "extra_user_type";
 }

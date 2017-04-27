@@ -9,14 +9,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.dawndemo.R;
 import com.dawndemo.base.BaseActivity;
+import com.dawndemo.impl.EmptyBundleVIew;
 import com.dawndemo.ui.fragment.NavigationFragment1;
 import com.dawndemo.ui.fragment.NavigationFragment2;
 import com.dawndemo.ui.fragment.NavigationFragment3;
 import com.dawndemo.ui.fragment.NavigationFragment4;
+import com.dawndemo.view.TipView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,12 +34,12 @@ import butterknife.ButterKnife;
  * <p>
  * do it:
  * method 1: menu.xml ,
- *           onClick : BottomNavigationView.OnNavigationItemSelectedListener
+ * onClick : BottomNavigationView.OnNavigationItemSelectedListener
  * method 2: 代码里实现
  * Created by zc on 2017/4/5.
  */
 
-public class NavigationBarActivity extends BaseActivity {
+public class NavigationBarActivity extends BaseActivity implements TipView{
     private static final String TAG = "NavigationBarActivity";
 
     public static final int ITME_NA1 = 0;
@@ -48,6 +51,8 @@ public class NavigationBarActivity extends BaseActivity {
     FrameLayout mContainer;
     @BindView(R.id.bottom_na)
     BottomNavigationView mBottomNa;
+    @BindView(R.id.tips)
+    FrameLayout mTips;
     private NavigationFragment1 mNa1;
     private NavigationFragment2 mNa2;
     private NavigationFragment3 mNa3;
@@ -94,16 +99,16 @@ public class NavigationBarActivity extends BaseActivity {
         Fragment fragment = mPageItems[position];
         if (fragment == null) {
             Log.i(TAG, "setSelectItem: fragment == null");
-            mPageItems [position] = getFragment(position);
-            fragment = mPageItems [position];
+            mPageItems[position] = getFragment(position);
+            fragment = mPageItems[position];
             ft.add(R.id.container, fragment);
-        }else {
+        } else {
             Log.i(TAG, "setSelectItem: fragment != null");
             ft.show(fragment);
         }
         for (int i = 0; i < mPageItems.length; i++) {
-            if(mPageItems [i] != null && i != position){
-                ft.hide(mPageItems [i]);
+            if (mPageItems[i] != null && i != position) {
+                ft.hide(mPageItems[i]);
             }
         }
         ft.commitAllowingStateLoss();
@@ -113,7 +118,7 @@ public class NavigationBarActivity extends BaseActivity {
     private Fragment getFragment(int position) {
         switch (position) {
             case ITME_NA1:
-                return NavigationFragment1.newInstance();
+                return NavigationFragment1.newInstance(3);
             case ITME_NA2:
                 return NavigationFragment2.newInstance();
             case ITME_NA3:
@@ -121,6 +126,19 @@ public class NavigationBarActivity extends BaseActivity {
             case ITME_NA4:
                 return NavigationFragment4.newInstance();
         }
-       return null;
+        return null;
+    }
+
+    @Override
+    public void setTipView(int ids, String text,boolean visible) {
+        mTips.removeAllViews();
+        EmptyBundleVIew emptyBundleVIew = new EmptyBundleVIew(this);
+        mTips.addView(emptyBundleVIew.setText(text).setIcn(ids).create());
+        if(visible){
+            mTips.setVisibility(View.VISIBLE);
+        }else{
+            mTips.setVisibility(View.GONE);
+        }
+
     }
 }

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    android:background="@android:color/darker_gray">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                android:orientation="vertical">
+
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签第一个标签"
         android:textColor="@android:color/holo_red_dark"/>
-<FrameLayout
-    android:id="@+id/layout_empty"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/name"/>
+
+    <FrameLayout
+        android:id="@+id/layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/name"/>
 </RelativeLayout>
