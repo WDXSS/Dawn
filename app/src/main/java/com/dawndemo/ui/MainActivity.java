@@ -14,6 +14,7 @@ import com.dawndemo.R;
 import com.dawndemo.base.BaseActivity;
 import com.dawndemo.base.BaseAdapter;
 import com.dawndemo.base.BaseViewHolder;
+import com.dawndemo.ui.activityanim.ShareElement1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +39,11 @@ public class MainActivity extends BaseActivity {
     private List<MainBean> data;
     private String TAG = "MainActivity";
 
-    private String[] titles = {"NavigationActivity","NavigationBarActivity"};
-    private String[] des = {"BottomNavigationView extends FramentLayout","need to and view page  fragment ,scroll"};
-    private String[] classNames = {NavigationActivity.class.getName(),NavigationBarActivity.class.getName()};
+    private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1"};
+    private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal"};
+    private Class [] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class MainActivity extends BaseActivity {
             MainBean bean = new MainBean();
             bean.setTitle(titles[i]);
             bean.setDes(des[i]);
+
             bean.setClassName(classNames[i]);
             data.add(bean);
         }
@@ -82,14 +86,9 @@ public class MainActivity extends BaseActivity {
         adapter.setOnRecycleItemClick(new BaseAdapter.OnRecycleViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                try {
-                    final MainBean model = data.get(position);
-                    Toast.makeText(MainActivity.this, "item ==== " + model.getTitle(), Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, Class.forName(model.getClassName())));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-
+                final MainBean model = data.get(position);
+                Toast.makeText(MainActivity.this, "item ==== " + model.getTitle(), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, model.getClassName()));
             }
         });
         recycler.setAdapter(adapter);

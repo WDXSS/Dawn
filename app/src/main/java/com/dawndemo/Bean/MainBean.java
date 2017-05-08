@@ -2,6 +2,8 @@ package com.dawndemo.Bean;
 
 import android.app.Activity;
 
+import com.dawndemo.base.BaseActivity;
+
 /**
  * Created by zc on 2017/3/30.
  */
@@ -15,7 +17,7 @@ public class MainBean {
 
 
 
-    private String className;
+    private Class<? extends BaseActivity> className;
 
 
 
@@ -34,11 +36,11 @@ public class MainBean {
     public void setDes(String des) {
         this.des = des;
     }
-    public String getClassName() {
+    public Class<? extends BaseActivity> getClassName() {
         return className;
     }
 
-    public void setClassName(String className) {
+    public void setClassName(Class<? extends BaseActivity> className) {
         this.className = className;
     }
     @Override
