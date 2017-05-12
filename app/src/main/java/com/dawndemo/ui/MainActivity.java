@@ -14,7 +14,8 @@ import com.dawndemo.R;
 import com.dawndemo.base.BaseActivity;
 import com.dawndemo.base.BaseAdapter;
 import com.dawndemo.base.BaseViewHolder;
-import com.dawndemo.ui.activityanim.ShareElement1;
+import com.dawndemo.ui.anim.ShareElement1;
+import com.dawndemo.ui.service.ServiceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +40,12 @@ public class MainActivity extends BaseActivity {
     private List<MainBean> data;
     private String TAG = "MainActivity";
 
-    private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1"};
-    private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal"};
-    private Class [] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class};
-
+    private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
+            "ServiceActivity"};
+    private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
+            "study service"};
+    private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
+            ServiceActivity.class};
 
 
     @Override

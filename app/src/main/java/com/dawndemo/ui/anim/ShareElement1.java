@@ -1,4 +1,4 @@
-package com.dawndemo.ui.activityanim;
+package com.dawndemo.ui.anim;
 
 import android.app.ActivityOptions;
 import android.content.Intent;

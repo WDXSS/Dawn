@@ -21,10 +21,16 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".ui.NavigationBarActivity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activityanim.ShareElement1"
+        <activity android:name=".ui.anim.ShareElement1"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activityanim.ShareElement2"
+        <activity android:name=".ui.anim.ShareElement2"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".ui.service.ServiceActivity"
+                  android:screenOrientation="portrait"/>
+        <service android:name=".ui.service.StartService">
+        </service>
+        <service android:name=".ui.service.BindService">
+        </service>
     </application>
-
+<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
