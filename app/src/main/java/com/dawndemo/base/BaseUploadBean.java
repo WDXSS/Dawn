@@ -11,4 +11,6 @@ public class BaseUploadBean implements Serializable {
     public  int uploadState;
     public String localPath;
     public String url;
+    //失败状态
+    public int code;
 }
