@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class DateUtil {
 
-    private static final String formatType1 = "yyyy-MM-dd HH:mm:ss";
+    private static final String formatType1 = "HH:mm:ss";
     /* 获取现在时间
        *
        * @return返回字符串格式  yyyy年MM月dd日 HH时mm分
