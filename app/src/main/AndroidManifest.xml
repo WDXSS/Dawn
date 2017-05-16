@@ -31,6 +31,11 @@
         </service>
         <service android:name=".ui.service.BindService">
         </service>
+
+        <!-- 测试服务，回调 -->
+        <service android:name=".ui.zmservice.ZMService"/>
+        <activity android:name=".ui.zmservice.ZMActivity"/>
+
     </application>
 <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

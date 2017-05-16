@@ -16,6 +16,7 @@ import com.dawndemo.base.BaseAdapter;
 import com.dawndemo.base.BaseViewHolder;
 import com.dawndemo.ui.anim.ShareElement1;
 import com.dawndemo.ui.service.ServiceActivity;
+import com.dawndemo.ui.zmservice.ZMActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,11 +42,11 @@ public class MainActivity extends BaseActivity {
     private String TAG = "MainActivity";
 
     private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
-            "ServiceActivity"};
+            "ServiceActivity","ZMActivity"};
     private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
-            "study service"};
+            "study service","测试Service 的回调"};
     private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
-            ServiceActivity.class};
+            ServiceActivity.class, ZMActivity.class};
 
 
     @Override
