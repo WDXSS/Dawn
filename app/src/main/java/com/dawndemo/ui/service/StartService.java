@@ -7,6 +7,11 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.dawndemo.ui.zmservice.ServiceCallBack;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by zc on 2017/5/11.
  */
@@ -14,12 +19,22 @@ import android.util.Log;
 public class StartService extends Service {
     private static final String TAG = "StartService";
     private Thread mThread;
+    private static List<ServiceCallBack> callBacks = new ArrayList<>();
+
     @Override
     public void onCreate() {
         super.onCreate();
         Log.i(TAG, "onCreate:");
 
 
+    }
+
+    public void addCall(ServiceCallBack callBack) {
+        callBacks.add(callBack);
+    }
+
+    public void remove(ServiceCallBack callBack) {
+        callBacks.remove(callBack);
     }
 
     @Override
@@ -61,16 +76,16 @@ public class StartService extends Service {
         return null;
     }
 
-    private void starRun(){
-        mThread = new Thread("startService"){
+    private void starRun() {
+        mThread = new Thread("startService") {
             @Override
             public void run() {
                 try {
-                   int index = 0;
-                    while (true){
+                    int index = 0;
+                    while (true) {
                         sleep(1000);
                         printlnTest(index);
-                        index ++;
+                        index++;
                     }
 
                 } catch (InterruptedException e) {
@@ -81,8 +96,11 @@ public class StartService extends Service {
         };
         mThread.start();
     }
-    private void printlnTest(int index){
+
+    private void printlnTest(int index) {
 
         Log.i(TAG, "printlnTest: " + mThread.getName() + ", index = " + index);
     }
+
+
 }

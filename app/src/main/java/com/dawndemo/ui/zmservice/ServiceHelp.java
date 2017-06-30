@@ -27,14 +27,13 @@ public class ServiceHelp {
     private String key;
     private ServiceCallBack mCallBack;
 
-    private ServiceConnection mConnection = new ServiceConnection() {
+    public ServiceConnection mConnection = new ServiceConnection() {
 
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.i(TAG, "onServiceConnected: ");
-            UpdateService.ZMBind binder = (UpdateService.ZMBind
-                    )service;
+            UpdateService.ZMBind binder = (UpdateService.ZMBind)service;
             mZmService = (ZMService) binder.getService();
         }
 
@@ -43,8 +42,6 @@ public class ServiceHelp {
             Log.i(TAG, "onServiceDisconnected: ");
         }
     };
-
-
     private ServiceHelp(Context context) {
         this.mContext = context;
     }
@@ -52,6 +49,7 @@ public class ServiceHelp {
     public static ServiceHelp getInstance(Context context){
         if(mServiceHelp == null ){
             mServiceHelp = new ServiceHelp(context);
+            Log.i(TAG, "getInstance: ");
         }
         return mServiceHelp;
     }
@@ -72,16 +70,18 @@ public class ServiceHelp {
 
     public void stopService(){
         unbindService();
-        Intent intent = new Intent(mContext ,ZMService.class);
-        mContext.stopService(intent);
+//        Intent intent = new Intent(mContext ,ZMService.class);
+//        mContext.stopService(intent);
     }
 
 
     public void onDestroy(){
-        unbindService();
         if(mCallBack != null){
             UpdateService.remove(mCallBack);
         }
+        unbindService();
+        Intent intent = new Intent(mContext, ZMService.class);
+        mContext.stopService(intent);
     }
 
     public void addServiceCallBack(ServiceCallBack callBack){
@@ -93,10 +93,11 @@ public class ServiceHelp {
     }
 
     private void bindService(){
-        Intent intent = new Intent(mContext, UpdateService.class);
+        Intent intent = new Intent(mContext, ZMService.class);
         mContext.bindService(intent,mConnection,Context.BIND_AUTO_CREATE);
     }
     private void unbindService(){
+
         mContext.unbindService(mConnection);
     }
 

@@ -45,15 +45,15 @@ public abstract class UpdateService<T extends BaseUploadBean> extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         Log.i(TAG, "onStart: ");
+        this.intent = intent;
+        getArguments(intent);
+      //  startThread();
+        alive = true;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(TAG, "onStartCommand: ");
-        this.intent = intent;
-        getArguments(intent);
-        startThread();
-        alive = true;
+        Log.i(TAG, "onStartCommand: intent =" +intent);
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -69,8 +69,9 @@ public abstract class UpdateService<T extends BaseUploadBean> extends Service {
 
     @Override
     public boolean onUnbind(Intent intent) {
-        Log.i(TAG, "onUnbind: ");
-        return super.onUnbind(intent);
+        boolean b = super.onUnbind(intent);
+        Log.i(TAG, "onUnbind: " + b );
+        return true;
     }
 
     @Override
@@ -87,12 +88,14 @@ public abstract class UpdateService<T extends BaseUploadBean> extends Service {
     }
 
     private void getArguments(Intent intent) {
-        mData = (List<T>) intent.getSerializableExtra(EXTRA_LIST);
-        key = intent.getStringExtra(EXTRA_KEY);
+        if(intent != null){
+            key = intent.getStringExtra(EXTRA_KEY);
+            mData = (List<T>) intent.getSerializableExtra(EXTRA_LIST);
+        }
     }
 
     private void createThread() {
-        if (mThread == null || !mThread.isAlive()) {
+        if (!alive) {
             mThread = new Thread(new Runnable() {
                 @Override
                 public void run() {

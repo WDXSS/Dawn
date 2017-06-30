@@ -35,6 +35,7 @@
         <!-- 测试服务，回调 -->
         <service android:name=".ui.zmservice.ZMService"/>
         <activity android:name=".ui.zmservice.ZMActivity"/>
+        <activity android:name=".ui.zmservice.ZMActivityTest2"/>
 
     </application>
 <uses-permission android:name="android.permission.INTERNET"/>

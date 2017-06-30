@@ -1,5 +1,6 @@
 package com.dawndemo.ui.zmservice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 
 import com.dawndemo.R;
 import com.dawndemo.base.BaseActivity;
-import com.dawndemo.base.UpdateService;
 import com.dawndemo.util.DateUtil;
 
 import java.util.ArrayList;
@@ -34,6 +34,14 @@ public class ZMActivity extends BaseActivity {
     Button mAliveService;
     @BindView(R.id.text)
     TextView mText;
+    @BindView(R.id.btn_start)
+    Button mBtnStart;
+    @BindView(R.id.btn_stop)
+    Button mBtnStop;
+    @BindView(R.id.bind_start)
+    Button mBindStart;
+    @BindView(R.id.unbind_stop)
+    Button mUnbindStop;
 
     private ServiceHelp mServiceHelper;
     private List<ImageBean> mData = new ArrayList<>();
@@ -62,14 +70,14 @@ public class ZMActivity extends BaseActivity {
             }
         });
         initData();
-
+        initServiceHelper();
     }
 
-    @OnClick({R.id.start_service, R.id.stop_service, R.id.alive})
+    @OnClick({R.id.start_service, R.id.stop_service, R.id.alive, R.id.to_zm2,R.id.btn_start, R.id.btn_stop, R.id.bind_start, R.id.unbind_stop})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.start_service:
-                initServiceHelper();
+                Log.i(TAG, "onViewClicked: start_service");
                 mServiceHelper.startService();
                 break;
             case R.id.stop_service:
@@ -78,14 +86,32 @@ public class ZMActivity extends BaseActivity {
             case R.id.alive:
                 mServiceHelper.isALive();
                 break;
-
+            case R.id.to_zm2:
+                Intent intent = new Intent(this, ZMActivityTest2.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_start:
+                Intent start = new Intent(this, ZMService.class);
+                startService(start);
+                break;
+            case R.id.btn_stop:
+                Intent stop = new Intent(this, ZMService.class);
+                stopService(stop);
+                break;
+            case R.id.bind_start:
+                Intent bind = new Intent(this, ZMService.class);
+                bindService(bind,mServiceHelper.mConnection,BIND_AUTO_CREATE);
+                break;
+            case R.id.unbind_stop:
+                unbindService(mServiceHelper.mConnection);
+                break;
         }
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         mServiceHelper.onDestroy();
+        super.onDestroy();
     }
 
     private void initData() {
@@ -104,4 +130,6 @@ public class ZMActivity extends BaseActivity {
         mServiceHelper.setKey(key);
         mServiceHelper.setData(mData);
     }
+
+
 }

@@ -49,9 +49,9 @@ public class BindService extends Service {
         super.onDestroy();
         Log.i(TAG, "onDestroy: ");
 
-        Log.i(TAG, "onDestroy:Thread.name = " + mThreads.get(startService).getName() + ", mThread.isInterrupted() = " + mThreads.get(startService).isInterrupted());
-        Log.i(TAG, "onDestroy: Thread.name = " + mThreads.get(startService).getName() + ", mThread.isAlive() = " + mThreads.get(startService).isAlive());
-        mThreads.get(startService).interrupt();
+//        Log.i(TAG, "onDestroy:Thread.name = " + mThreads.get(startService).getName() + ", mThread.isInterrupted() = " + mThreads.get(startService).isInterrupted());
+//        Log.i(TAG, "onDestroy: Thread.name = " + mThreads.get(startService).getName() + ", mThread.isAlive() = " + mThreads.get(startService).isAlive());
+//        mThreads.get(startService).interrupt();
     }
 
     @Override
