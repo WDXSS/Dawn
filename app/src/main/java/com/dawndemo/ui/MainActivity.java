@@ -42,11 +42,11 @@ public class MainActivity extends BaseActivity {
     private String TAG = "MainActivity";
 
     private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
-            "ServiceActivity","ZMActivity"};
+            "ServiceActivity","ZMActivity","BannerActivity"};
     private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
-            "study service","测试Service 的回调"};
+            "study service","测试Service 的回调", "广告位"};
     private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
-            ServiceActivity.class, ZMActivity.class};
+            ServiceActivity.class, ZMActivity.class,BannerActivity.class};
 
 
     @Override

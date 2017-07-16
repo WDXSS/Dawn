@@ -37,6 +37,8 @@
         <activity android:name=".ui.zmservice.ZMActivity"/>
         <activity android:name=".ui.zmservice.ZMActivityTest2"/>
 
+        <activity android:name=".ui.BannerActivity"/>
+
     </application>
 <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
