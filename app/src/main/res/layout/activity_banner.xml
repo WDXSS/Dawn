@@ -4,16 +4,32 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.dawndemo.wighet.banner.BannerView
-        android:id="@+id/banner"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"/>
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="继承RelativeLayout ,可以添加标记"
-    android:layout_marginTop="20dp"
-    />
+        android:layout_height="wrap_content"
+        >
+
+        <com.dawndemo.wighet.banner.BannerView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+
+        <com.dawndemo.wighet.banner.ScrollPoint
+            android:id="@+id/point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/banner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="继承RelativeLayout ,可以添加标记"
+        />
+
     <com.dawndemo.wighet.banner.adm.AdmBannerView
         android:id="@+id/adm_banner"
         android:layout_width="match_parent"

@@ -47,7 +47,6 @@ public class AdmBannerView extends RelativeLayout {
     }
 
     public void setAdapter(PagerAdapter adapter) {
-
         mCount = adapter.getCount();
         mViewPager.setAdapter(adapter);
         mViewPager.setCurrentItem(1);
@@ -66,6 +65,8 @@ public class AdmBannerView extends RelativeLayout {
             mViewPager.setScrollable(false);
         }
     }
+
+
     private void setPoint(){
         mScrollPoint.setPointRes(R.drawable.new_version_point);
         mScrollPoint.setSize(mCount - 2);

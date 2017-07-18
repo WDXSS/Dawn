@@ -1,12 +1,17 @@
 package com.dawndemo.wighet.banner;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 
 /**
+ * {@link #addPageSelectedListener(onPageSelectedListener) 显示的当前item，显示标记}
+ * {@link #setScrollable(boolean) 设置是否可以滑动}
+ * {@link #startAutoPlay() 开启自动轮播 @link #stopAutoPaly() 停止自动轮播}
  * Created by zc on 2017/7/16.
  */
 
@@ -14,8 +19,14 @@ public class BannerView extends ViewPager {
     private static final String TAG = "BannerView";
 
     private boolean scrollable = true;
-    private int count;
-    private OnPointListener mPointListener;
+    private boolean isScrolling = false;
+    private int count;//adapter.getCount()，比数据list 大 2
+    private int currentItem = 1;
+    private int defCount; //viewpager,实际大小，list.size();
+    private onPageSelectedListener mPointListener;
+    private boolean isAutoPlay;
+    private int delayTime = 3 * 1000;
+    private Handler mHandler = new Handler();
 
     public BannerView(Context context) {
         super(context);
@@ -26,108 +37,122 @@ public class BannerView extends ViewPager {
     }
 
     @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        return this.scrollable && super.onTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return this.scrollable && super.onInterceptTouchEvent(ev);
+    }
+
+    public void setScrollable(boolean scrollable) {
+        this.scrollable = scrollable;
+    }
+
+    @Override
     public void setAdapter(PagerAdapter adapter) {
         super.setAdapter(adapter);
         count = adapter.getCount();
-        this.setCurrentItem(1);
-        addOnPageChangeListener();
-        setPoint(1);
+        defCount = adapter.getCount() - 2;
+        if (defCount == 1) {
+            setScrollable(false);
+        }
+        this.setCurrentItem(currentItem);
+        setPageChangeListener();
+        setOnSelectedChanged(currentItem);
     }
 
-    private void addOnPageChangeListener() {
-        this.addOnPageChangeListener(new MineOnPageChangeListener(count));
-
-//        this.addOnPageChangeListener(new OnPageChangeListener() {
-//            private int position;
-//
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                this.position = position;
-//                Log.i(TAG, "onPageSelected: position = " + position);
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//                if (state == ViewPager.SCROLL_STATE_IDLE) {
-//                    Log.i(TAG, "onPageScrollStateChanged:  state = " + state + ",position = " + position + ",count = " + count);
-//                    if (position == count - 1) {
-//                        //要显示 viewpager的第一页：
-//                        Log.i(TAG, "onPageScrollStateChanged: 第一张图");
-//                        setCurrentItem(1, false);
-//                    } else if (position == 0) {
-//                        Log.i(TAG, "onPageScrollStateChanged: 最后一张图");
-//                        setCurrentItem(count - 2, false);
-//                    } else {
-//                        setCurrentItem(position, false);
-//                    }
-//                }
-//            }
-//
-//        });
-
+    public void startAutoPlay() {
+        isAutoPlay = true;
+        mHandler.removeCallbacks(task);
+        mHandler.postDelayed(task, delayTime);
     }
 
+    public void stopAutoPaly() {
+        isAutoPlay = false;
+        mHandler.removeCallbacks(task);
+    }
+
+    public void setDelayTime(int delayTime) {
+        this.delayTime = delayTime;
+    }
+
+    private final Runnable task = new Runnable() {
+        @Override
+        public void run() {
+            if ((count - 2) > 1 && !isScrolling) {
+                currentItem = currentItem % (count - 1) + 1;
+                if (currentItem == 1) {
+                    setCurrentItem(currentItem, false);
+                    mHandler.post(task);
+                } else {
+                    setCurrentItem(currentItem);
+                    mHandler.postDelayed(task, delayTime);
+                }
+            }
+        }
+    };
 
     private class MineOnPageChangeListener implements OnPageChangeListener {
-        private int adapterCount;//adapter.getCount()，比数据list 大 2
-        private int position;
-
-        public MineOnPageChangeListener(int count) {
-            this.adapterCount = count;
-        }
-
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
         }
 
         @Override
         public void onPageSelected(int position) {
-            this.position = position;
-            Log.i(TAG, "onPageSelected: position = " + position);
+            currentItem = position;
         }
 
         @Override
         public void onPageScrollStateChanged(int state) {
+            //重新计算显示的位置
             if (state == ViewPager.SCROLL_STATE_IDLE) {
-                Log.i(TAG, "onPageScrollStateChanged:  state = " + state + ",position = " + position + ",count = " + count);
-                int point ;
-                if (position == adapterCount - 1) {
+                int point;
+                if (currentItem == count - 1) {
                     //要显示 viewpager的第一页：
-                    Log.i(TAG, "onPageScrollStateChanged: 第一张图");
-                    setCurrentItem(1, false);
                     point = 1;
-                } else if (position == 0) {
-                    Log.i(TAG, "onPageScrollStateChanged: 最后一张图");
-                    setCurrentItem(adapterCount - 2, false);
-                    point = adapterCount - 2;
+                } else if (currentItem == 0) {
+                    point = count - 2;
                 } else {
-                    setCurrentItem(position, false);
-                    point = adapterCount - 2;
+                    point = currentItem;
                 }
-                setPoint(point);
+                setCurrentItem(point, false);
+                setOnSelectedChanged(point);
+                isScrolling = false;
+                if (isAutoPlay) {
+                    startAutoPlay();
+                }
+            }
+            if (state == ViewPager.SCROLL_STATE_DRAGGING || state == ViewPager.SCROLL_STATE_SETTLING) {
+                isScrolling = true;
             }
         }
     }
 
-    //设置标记
-    private void setPoint(int point){
-        if(mPointListener != null){
-            mPointListener.getPointPosition(point);
-        }
+    private void setPageChangeListener() {
+        this.addOnPageChangeListener(new MineOnPageChangeListener());
     }
-    public void addOnPointListener(OnPointListener listener) {
+
+    private void setOnSelectedChanged(int point) {
+        if (mPointListener != null) {
+            mPointListener.onPageSelected(point);
+        }
+
+    }
+
+    public void addPageSelectedListener(onPageSelectedListener listener) {
         this.mPointListener = listener;
     }
+
     /**
      * viewpager，标记
      */
-    public interface OnPointListener {
-        void getPointPosition(int position);
+    public interface onPageSelectedListener {
+        /**
+         * @param position 是从1开始的
+         */
+        void onPageSelected(int position);
     }
 }
+
