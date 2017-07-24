@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity"
+        <activity
+            android:name=".ui.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -17,16 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.NavigationActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.NavigationBarActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.anim.ShareElement1"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.anim.ShareElement2"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.service.ServiceActivity"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.NavigationActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.NavigationBarActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.anim.ShareElement1"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.anim.ShareElement2"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.service.ServiceActivity"
+            android:screenOrientation="portrait"/>
+
         <service android:name=".ui.service.StartService">
         </service>
         <service android:name=".ui.service.BindService">
@@ -34,11 +41,12 @@
 
         <!-- 测试服务，回调 -->
         <service android:name=".ui.zmservice.ZMService"/>
+
         <activity android:name=".ui.zmservice.ZMActivity"/>
         <activity android:name=".ui.zmservice.ZMActivityTest2"/>
 
         <activity android:name=".ui.BannerActivity"/>
-
+        <activity android:name=".recycler.ui.RecyclerListActivity"/>
     </application>
-<uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
