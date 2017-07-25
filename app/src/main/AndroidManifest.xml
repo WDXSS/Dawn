@@ -47,6 +47,8 @@
 
         <activity android:name=".ui.BannerActivity"/>
         <activity android:name=".recycler.ui.RecyclerListActivity"/>
+        <activity android:name=".recycler.ui.RecyclerActivity"/>
+        <activity android:name=".recycler.ui.LibRecyclerActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

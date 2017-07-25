@@ -14,6 +14,7 @@ import com.dawndemo.R;
 import com.dawndemo.base.BaseActivity;
 import com.dawndemo.base.BaseAdapter;
 import com.dawndemo.base.BaseViewHolder;
+import com.dawndemo.recycler.ui.RecyclerActivity;
 import com.dawndemo.recycler.ui.RecyclerListActivity;
 import com.dawndemo.ui.anim.ShareElement1;
 import com.dawndemo.ui.service.ServiceActivity;
@@ -43,11 +44,11 @@ public class MainActivity extends BaseActivity {
     private String TAG = "MainActivity";
 
     private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
-            "ServiceActivity","ZMActivity","BannerActivity","RecyclerListActivity"};
+            "ServiceActivity","ZMActivity","BannerActivity","RecyclerActivity"};
     private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
             "study service","测试Service 的回调", "广告位","recyclerView study"};
     private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
-            ServiceActivity.class, ZMActivity.class,BannerActivity.class, RecyclerListActivity.class};
+            ServiceActivity.class, ZMActivity.class,BannerActivity.class, RecyclerActivity.class};
 
 
     @Override
