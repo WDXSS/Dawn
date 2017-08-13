@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,12 +16,13 @@ import com.dawndemo.base.BaseActivity;
 import com.dawndemo.base.BaseAdapter;
 import com.dawndemo.base.BaseViewHolder;
 import com.dawndemo.recycler.ui.RecyclerActivity;
-import com.dawndemo.recycler.ui.RecyclerListActivity;
 import com.dawndemo.ui.anim.ShareElement1;
 import com.dawndemo.ui.service.ServiceActivity;
 import com.dawndemo.ui.zmservice.ZMActivity;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import butterknife.BindView;
@@ -56,6 +58,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        testBean();
 
         data = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
@@ -65,6 +68,7 @@ public class MainActivity extends BaseActivity {
 
             bean.setClassName(classNames[i]);
             data.add(bean);
+            initList();
         }
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -109,6 +113,96 @@ public class MainActivity extends BaseActivity {
             case R.id.recycler:
                 break;
         }
+    }
+
+    private void initList() {
+        List<String> list = new ArrayList<>();
+        List<String> local = new ArrayList<>();
+        String s1 = "1";
+        String s2 = "2";
+        String s3 = "3";
+        String s4 = "4";
+        String s5 = "5";
+        String s6 = "6";
+
+        list.add(s1);
+        list.add(s2);
+        list.add(s3);
+        list.add(s4);
+        list.add(s5);
+        list.add(s6);
+
+        local.add(s1);
+        local.add(s2);
+        local.add(s3);
+
+//        compare(list, local);
+
+    }
+
+    private void compare(List<String> list1, List<String> list2) {
+
+        List<String> newList = new ArrayList<>();
+        for (int i = 0; i < list1.size(); i++) {
+            Log.i(TAG, "compare: 外循环 i= " + i);
+            for (int i1 = 0; i1 < list2.size(); i1++) {
+                Log.i(TAG, "compare: 内循环 i1= " + i1);
+                if (list1.get(i).equals(list2.get(i1))) {
+                    newList.add(list1.get(i));
+                    break;
+                }
+            }
+        }
+        list1.removeAll(newList);
+        for (String s : list1) {
+            Log.i(TAG, "compare: new = " + s);
+        }
+
+
+    }
+
+    private void testBean() {
+        List<TestBean> list = new ArrayList<>();
+        List<String> local = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            TestBean bean = new TestBean();
+            bean.name = "name " + i;
+            if (i % 4 == 0) {
+                bean.topRink = 1;
+            }
+            if (i % 2 == 0) {
+                bean.sort = i;
+            }
+            list.add(bean);
+        }
+        for (TestBean testBean : list) {
+            Log.i(TAG, "testBean: 赋值后的 bean.name = " + testBean.name + ",bean.topRink= " + testBean.topRink + ", bean.sort = " + testBean.sort);
+        }
+
+        Collections.sort(list, new Comparator<TestBean>() {
+            @Override
+            public int compare(TestBean o1, TestBean o2) {
+                //降序
+                if (o1.topRink < o2.topRink) {
+                    return 1;
+                } else if (o1.topRink == o2.topRink) {
+                    if (o1.sort < o2.sort) {
+                        return 1;
+                    }
+                }
+                return -1;
+            }
+        });
+
+        for (TestBean testBean : list) {
+            Log.i(TAG, "testBean: 排序后的 bean.name = " + testBean.name + ",bean.topRink= " + testBean.topRink + ", bean.sort = " + testBean.sort);
+        }
+    }
+
+    private class TestBean {
+        String name;
+        int topRink;
+        int sort;
     }
 
 }
