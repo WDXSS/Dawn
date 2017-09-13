@@ -186,8 +186,10 @@ public class MainActivity extends BaseActivity {
                 if (o1.topRink < o2.topRink) {
                     return 1;
                 } else if (o1.topRink == o2.topRink) {
-                    if (o1.sort < o2.sort) {
+                    if (o1.sort > o2.sort) {
                         return 1;
+                    }else if(o1.sort == o2.sort){
+                        return 0;
                     }
                 }
                 return -1;

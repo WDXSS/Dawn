@@ -42,7 +42,8 @@
         <!-- 测试服务，回调 -->
         <service android:name=".ui.zmservice.ZMService"/>
 
-        <activity android:name=".ui.zmservice.ZMActivity"/>
+        <activity android:name=".ui.zmservice.ZMActivity"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ui.zmservice.ZMActivityTest2"/>
 
         <activity android:name=".ui.BannerActivity"/>
