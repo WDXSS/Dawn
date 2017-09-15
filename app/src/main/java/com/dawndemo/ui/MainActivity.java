@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
 
 
     private List<MainBean> data;
-    private String TAG = "MainActivity";
+    private String TAG = "MainActivity 分支zc_test";
 
     private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
             "ServiceActivity","ZMActivity","BannerActivity","RecyclerActivity"};
@@ -197,7 +197,7 @@ public class MainActivity extends BaseActivity {
         });
 
         for (TestBean testBean : list) {
-            Log.i(TAG, "dev 分支  testBean: 排序后的 bean.name = " + testBean.name + ",bean.topRink= " + testBean.topRink + ", bean.sort = " + testBean.sort);
+            Log.i(TAG, "zc_test 分支  testBean: 排序后的 bean.name = " + testBean.name + ",bean.topRink= " + testBean.topRink + ", bean.sort = " + testBean.sort);
         }
     }
 
