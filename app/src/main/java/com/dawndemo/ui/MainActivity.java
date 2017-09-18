@@ -44,6 +44,7 @@ public class MainActivity extends BaseActivity {
 
     private List<MainBean> data;
     private String TAG = "MainActivity";
+    private String s = "zc_company";
 
     private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
             "ServiceActivity","ZMActivity","BannerActivity","RecyclerActivity"};
