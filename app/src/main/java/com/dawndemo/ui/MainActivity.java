@@ -48,11 +48,11 @@ public class MainActivity extends BaseActivity {
     private String s = "zc_company_zc_dev";
 
     private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
-            "ServiceActivity","ZMActivity","BannerActivity","RecyclerActivity"};
+            "ServiceActivity","ZMActivity","BannerActivity","RecyclerActivity","DrawableBackgroundActivity","TextWatcherActivity"};
     private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
-            "study service","测试Service 的回调", "广告位","recyclerView study"};
+            "study service","测试Service 的回调", "广告位","recyclerView study","画不同的背景","EditText 输入的监听"};
     private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
-            ServiceActivity.class, ZMActivity.class,BannerActivity.class, RecyclerActivity.class};
+            ServiceActivity.class, ZMActivity.class,BannerActivity.class, RecyclerActivity.class,DrawableBackgroundActivity.class,TextWatcherActivity.class};
 
 
     @Override

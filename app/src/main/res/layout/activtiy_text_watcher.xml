@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+<EditText
+    android:id="@+id/et"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="beforeTextChanged:"/>
+        <TextView
+            android:id="@+id/before"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text=":"
+            android:textColor="#ffffff"
+            android:background="#020000"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="onTextChanged:"/>
+        <TextView
+            android:id="@+id/changed"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text=":"
+            android:textColor="#ffffff"
+            android:background="#020000"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="afterTextChanged:"/>
+        <TextView
+            android:id="@+id/after"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text=":"
+            android:textColor="#ffffff"
+            android:background="#020000"/>
+    </LinearLayout>
+
+</LinearLayout>
