@@ -50,6 +50,7 @@
         <activity android:name=".recycler.ui.RecyclerListActivity"/>
         <activity android:name=".recycler.ui.RecyclerActivity"/>
         <activity android:name=".recycler.ui.LibRecyclerActivity"/>
+        <activity android:name=".ui.binding.DataBindingActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

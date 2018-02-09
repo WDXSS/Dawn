@@ -17,6 +17,7 @@ import com.dawndemo.base.BaseAdapter;
 import com.dawndemo.base.BaseViewHolder;
 import com.dawndemo.recycler.ui.RecyclerActivity;
 import com.dawndemo.ui.anim.ShareElement1;
+import com.dawndemo.ui.binding.DataBindingActivity;
 import com.dawndemo.ui.service.ServiceActivity;
 import com.dawndemo.ui.zmservice.ZMActivity;
 
@@ -48,11 +49,11 @@ public class MainActivity extends BaseActivity {
     private String s = "zc_company_zc_dev";
 
     private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
-            "ServiceActivity","ZMActivity","BannerActivity","RecyclerActivity"};
+            "ServiceActivity","ZMActivity","BannerActivity","RecyclerActivity","DataBindingActivity"};
     private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
-            "study service","测试Service 的回调", "广告位","recyclerView study"};
+            "study service","测试Service 的回调", "广告位","recyclerView study","DataBindingActivity"};
     private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
-            ServiceActivity.class, ZMActivity.class,BannerActivity.class, RecyclerActivity.class};
+            ServiceActivity.class, ZMActivity.class,BannerActivity.class, RecyclerActivity.class,DataBindingActivity.class};
 
 
     @Override
