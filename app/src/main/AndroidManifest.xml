@@ -3,6 +3,7 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -50,7 +51,10 @@
         <activity android:name=".recycler.ui.RecyclerListActivity"/>
         <activity android:name=".recycler.ui.RecyclerActivity"/>
         <activity android:name=".recycler.ui.LibRecyclerActivity"/>
+        <activity android:name=".ui.binding.DataBindingMainActivity"/>
         <activity android:name=".ui.binding.DataBindingActivity"/>
+        <activity android:name=".ui.binding.EditActivity"/>
+        <activity android:name=".ui.notify.NotifyMainActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

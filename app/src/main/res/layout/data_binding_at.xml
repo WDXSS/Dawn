@@ -1,48 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-<data>
-    <variable
-        name="user"
-        type="com.dawndemo.ui.binding.bean.UserBean"/>
-    <variable
-        name="presenter"
-        type="com.dawndemo.ui.binding.presenter.Presenter"/>
-</data>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.dawndemo.ui.binding.bean.UserBean"/>
+
+        <variable
+            name="presenter"
+            type="com.dawndemo.ui.binding.presenter.Presenter"/>
+
+        <import type="com.dawndemo.ui.binding.utils.MyStringUtils"/>
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@={user.name}"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@={user.position}"
             />
 
-        <Button
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="test"
-            android:text="点击"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> presenter.onClickListenerBinding(user)}"
-            android:text="绑定点击效果"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="test"
+                android:text="点击"/>
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> presenter.onClickListenerBinding(user)}"
+                android:text="绑定点击效果"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> user.bindingClick(user)}"
+                android:text="Bean中的绑定点击效果"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="@{(thisView) -> presenter.getName(thisView, user)}"
+            android:text="  name 最终显示什么？点击试试"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff000"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dataBinding 使用静态方法赋值"
+            android:textColor="#000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="使用静态方法同步更新name信息："
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{MyStringUtils.capitalize(user.name)}"
+                android:textColor="#000000"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff000"
+            android:layout_marginBottom="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 引入layout"
+            />
+        <!-- 引入layout
+              bind:mUser="@{user}" 中的mUser是include定义variable,
+              user 为当前layout中variable
+           -->
+        <include
+            android:id="@+id/layout"
+            layout="@layout/data_binding_edit_ac"
+            bind:mUser="@{user}"
+            />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> user.bindingClick(user)}"
-            android:text="Bean中的绑定点击效果"/>
+            android:textAllCaps="false"
+            android:onClick="toEditName"
+            android:text="to 编辑name"/>
+
     </LinearLayout>
 
 </layout>

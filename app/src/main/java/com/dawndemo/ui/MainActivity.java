@@ -18,6 +18,8 @@ import com.dawndemo.base.BaseViewHolder;
 import com.dawndemo.recycler.ui.RecyclerActivity;
 import com.dawndemo.ui.anim.ShareElement1;
 import com.dawndemo.ui.binding.DataBindingActivity;
+import com.dawndemo.ui.binding.DataBindingMainActivity;
+import com.dawndemo.ui.notify.NotifyMainActivity;
 import com.dawndemo.ui.service.ServiceActivity;
 import com.dawndemo.ui.zmservice.ZMActivity;
 
@@ -49,11 +51,14 @@ public class MainActivity extends BaseActivity {
     private String s = "zc_company_zc_dev";
 
     private String[] titles = {"NavigationActivity", "NavigationBarActivity", "ShareElement1",
-            "ServiceActivity","ZMActivity","BannerActivity","RecyclerActivity","DataBindingActivity"};
+            "ServiceActivity", "ZMActivity", "BannerActivity", "RecyclerActivity", "DataBindingMainActivity",
+            "NotifyMainActivity"};
     private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
-            "study service","测试Service 的回调", "广告位","recyclerView study","DataBindingActivity"};
+            "study service", "测试Service 的回调", "广告位", "recyclerView study", "DataBindingMainActivity",
+            "NotifyMainActivity"};
     private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
-            ServiceActivity.class, ZMActivity.class,BannerActivity.class, RecyclerActivity.class,DataBindingActivity.class};
+            ServiceActivity.class, ZMActivity.class, BannerActivity.class, RecyclerActivity.class, DataBindingMainActivity.class,
+            NotifyMainActivity.class};
 
 
     @Override
@@ -191,7 +196,7 @@ public class MainActivity extends BaseActivity {
                 } else if (o1.topRink == o2.topRink) {
                     if (o1.sort > o2.sort) {
                         return 1;
-                    }else if(o1.sort == o2.sort){
+                    } else if (o1.sort == o2.sort) {
                         return 0;
                     }
                 }
