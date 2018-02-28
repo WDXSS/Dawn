@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <!--
+         如果产生了冲突可以使用别名的方式
+         <import type="com.example.User"/>
+         <import type="com.mvvm.model.User" alias="MyUser"/>
+        -->
+        <variable
+            name="startActivity"
+            type="com.dawndemo.ui.binding.bean.MainBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> startActivity.startDataBindingActivity()}"
+            android:text="@{startActivity.btnText1}"
+            android:textAllCaps="false"
+            />
+
+    </LinearLayout>
+</layout>
