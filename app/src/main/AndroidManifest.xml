@@ -58,8 +58,11 @@
         <activity android:name=".ui.binding.DataBindingMainActivity"/>
         <activity android:name=".ui.binding.DataBindingActivity"/>
         <activity android:name=".ui.binding.EditActivity"/>
+
         <activity android:name=".ui.notify.NotifyMainActivity"/>
+        <activity android:name=".ui.notify.NotifyOpenActivity"/>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 </manifest>

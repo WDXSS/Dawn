@@ -5,7 +5,5 @@ package com.dawndemo.ui.notify.bean;
  */
 
 public class NotifyMainBean {
-    public String title ="Notify Demo study";
-
 
 }
