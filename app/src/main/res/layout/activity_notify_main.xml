@@ -16,7 +16,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-
+        <Button
+            android:id="@+id/btn_mi6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="MI6通知"
+            />
         <Button
             android:id="@+id/btn_simple"
             android:layout_width="wrap_content"

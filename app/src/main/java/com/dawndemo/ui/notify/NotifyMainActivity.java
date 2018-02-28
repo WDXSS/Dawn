@@ -1,6 +1,7 @@
 package com.dawndemo.ui.notify;
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
@@ -20,11 +21,13 @@ import com.dawndemo.base.BaseActivity;
 
 public class NotifyMainActivity extends BaseActivity implements View.OnClickListener {
     private final String SIMPLE_NOTIFY = "simple_notify";
+    private final int MI_6_ID = 98;
     private final int SIMPLE_ID = 99;
     private final int MINE_ID = 100;
 
 
     private Button mBtnCreate;
+    private Button mBtnMI6;
     private Button mBtnCustom;
     private View mBtnTwo;
 
@@ -36,18 +39,24 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
     }
 
     private void initView() {
+        mBtnMI6 = findViewById(R.id.btn_mi6);
         mBtnCreate = findViewById(R.id.btn_simple);
         mBtnTwo = findViewById(R.id.btn_two);
         mBtnCustom = findViewById(R.id.btn_custom);
 
-        mBtnTwo.setOnClickListener(this);
+        mBtnMI6.setOnClickListener(this);
         mBtnCreate.setOnClickListener(this);
+        mBtnTwo.setOnClickListener(this);
         mBtnCustom.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btn_mi6:
+                defNotify("一般写法","通知的一般写法");
+                break;
             case R.id.btn_simple:
                 simpleNotify(0);
                 break;
@@ -59,6 +68,34 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
 
                 break;
         }
+    }
+
+    /**
+     * 通常写法
+     * @param title
+     * @param text
+     */
+    private void defNotify(String title, String text) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentTitle(title);
+        builder.setContentText(text);
+        builder.setAutoCancel(true);
+        builder.setOnlyAlertOnce(true);
+        // 需要VIBRATE权限
+        builder.setDefaults(Notification.DEFAULT_ALL);
+        builder.setPriority(Notification.PRIORITY_DEFAULT);
+
+        // Creates an explicit intent for an Activity in your app
+        //自定义打开的界面
+        Intent resultIntent = new Intent(this, NotifyOpenActivity.class);
+        resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(MI_6_ID, builder.build());
     }
 
     /**
@@ -123,11 +160,11 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
     private void addBuilderFlags(NotificationCompat.Builder builder) {
 
         builder.setPriority(NotificationCompat.PRIORITY_DEFAULT); //优先级 priority
-//        builder.setOnlyAlertOnce(true); //设置提醒只执行一次
+       builder.setOnlyAlertOnce(false); //设置提醒只执行一次
         //builder.setDefaults(Notification.DEFAULT_SOUND);// 添加默认声音提醒
         // builder.setDefaults(Notification.DEFAULT_LIGHTS);// 添加默认呼吸灯提醒，自动添加FLAG_SHOW_LIGHTS
-        //builder.setDefaults(Notification.DEFAULT_VIBRATE); //单独震动
-        builder.setDefaults(Notification.DEFAULT_ALL); //声音提醒,呼吸灯提醒,震动
+        builder.setDefaults(Notification.DEFAULT_VIBRATE); //单独震动
+//        builder.setDefaults(Notification.DEFAULT_ALL); //声音提醒,呼吸灯提醒,震动
     }
 
     /**
@@ -149,6 +186,9 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
         builder.setLights(argb, onMs, offMs);// 添加自定义呼吸灯提醒，自动添加FLAG_SHOW_LIGHTS
 
     }
+
+
+
 }
 
 
