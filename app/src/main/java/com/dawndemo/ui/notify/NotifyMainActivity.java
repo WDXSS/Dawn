@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,6 +21,7 @@ import com.dawndemo.base.BaseActivity;
  */
 
 public class NotifyMainActivity extends BaseActivity implements View.OnClickListener {
+    private static final String TAG = "NotifyMainActivity";
     private final String SIMPLE_NOTIFY = "simple_notify";
     private final int MI_6_ID = 98;
     private final int SIMPLE_ID = 99;
@@ -42,7 +44,7 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
         mBtnMI6 = findViewById(R.id.btn_mi6);
         mBtnCreate = findViewById(R.id.btn_simple);
         mBtnTwo = findViewById(R.id.btn_two);
-        mBtnCustom = findViewById(R.id.btn_custom);
+        mBtnCustom = findViewById(R.id.btn_sound);
 
         mBtnMI6.setOnClickListener(this);
         mBtnCreate.setOnClickListener(this);
@@ -64,11 +66,12 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
                 simpleNotify(1);
                 simpleNotify(0);
                 break;
-            case R.id.btn_custom:
-
+            case R.id.btn_sound:
+                simpleNotify(1);
                 break;
         }
     }
+
 
     /**
      * 通常写法
@@ -80,7 +83,7 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentTitle(title);
         builder.setContentText(text);
-        builder.setAutoCancel(true);
+//        builder.setAutoCancel(true);
         builder.setOnlyAlertOnce(true);
         // 需要VIBRATE权限
         builder.setDefaults(Notification.DEFAULT_ALL);
@@ -114,7 +117,7 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentTitle("My notification");
         if(type == 0){
-            builder.setContentTitle("My notification");;//默认提醒方式
+            builder.setContentTitle("My notification");//默认提醒方式
         }else if(type == 1){
             builder.setContentTitle("My notification -- MINE");//自定义提醒方式
         }
@@ -122,8 +125,10 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
         builder.setStyle(new NotificationCompat.BigTextStyle()
                 .bigText("Much longer text that cannot fit one line..."));
         if(type == 0){
+            Log.i(TAG, "simpleNotify: 默认提醒");
             addBuilderFlags(builder);//默认提醒方式
         }else if(type == 1){
+            Log.i(TAG, "simpleNotify: 声音提醒");
             addMineBuilderFlags(builder);//自定义提醒方式
         }
         // Set the intent that will fire when the user taps the notification
@@ -159,9 +164,9 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
      */
     private void addBuilderFlags(NotificationCompat.Builder builder) {
 
-        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT); //优先级 priority
+//        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT); //优先级 priority
        builder.setOnlyAlertOnce(false); //设置提醒只执行一次
-        //builder.setDefaults(Notification.DEFAULT_SOUND);// 添加默认声音提醒
+        builder.setDefaults(Notification.DEFAULT_SOUND);// 添加默认声音提醒
         // builder.setDefaults(Notification.DEFAULT_LIGHTS);// 添加默认呼吸灯提醒，自动添加FLAG_SHOW_LIGHTS
         builder.setDefaults(Notification.DEFAULT_VIBRATE); //单独震动
 //        builder.setDefaults(Notification.DEFAULT_ALL); //声音提醒,呼吸灯提醒,震动
@@ -173,17 +178,17 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
      */
     private void addMineBuilderFlags(NotificationCompat.Builder builder){
 //        builder.setOnlyAlertOnce(true);//设置提醒只执行一次
-        builder.setPriority(NotificationCompat.PRIORITY_MAX); //优先级 priority
+//        builder.setPriority(NotificationCompat.PRIORITY_MAX); //优先级 priority
 
         builder.setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.pay_001));// 添加自定义声音提醒
-        // 延迟200ms后震动300ms，再延迟400ms后震动500ms
-        long[] pattern = new long[]{200,300,400,500};// 添加自定义震动提醒
-        builder.setVibrate(pattern);
-
-        int argb = 0x00ff0000;  // led灯光颜色
-        int onMs = 300;         // led亮灯持续时间
-        int offMs = 100;        // led熄灯持续时间
-        builder.setLights(argb, onMs, offMs);// 添加自定义呼吸灯提醒，自动添加FLAG_SHOW_LIGHTS
+//        // 延迟200ms后震动300ms，再延迟400ms后震动500ms
+//        long[] pattern = new long[]{200,300,400,500};// 添加自定义震动提醒
+//        builder.setVibrate(pattern);
+//
+//        int argb = 0x00ff0000;  // led灯光颜色
+//        int onMs = 300;         // led亮灯持续时间
+//        int offMs = 100;        // led熄灯持续时间
+//        builder.setLights(argb, onMs, offMs);// 添加自定义呼吸灯提醒，自动添加FLAG_SHOW_LIGHTS
 
     }
 

@@ -3,6 +3,7 @@ package com.dawndemo.ui.binding.bean;
 import android.content.Context;
 import android.content.Intent;
 
+import com.dawndemo.ui.binding.BindObservableActivity;
 import com.dawndemo.ui.binding.DataBindingActivity;
 
 /**
@@ -22,5 +23,9 @@ public class MainBean {
     }
     public void startDataBindingActivity(){
         mContext.startActivity(new Intent(mContext, DataBindingActivity.class));
+    }
+
+    public void startObservableActivity(){
+        mContext.startActivity(new Intent(mContext, BindObservableActivity.class));
     }
 }

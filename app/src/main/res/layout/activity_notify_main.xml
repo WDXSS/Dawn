@@ -46,11 +46,11 @@
         >
 
         <Button
-            android:id="@+id/btn_custom"
+            android:id="@+id/btn_sound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="自定义通知"
+            android:text="语音义通知"
             />
     </LinearLayout>
 </LinearLayout>
