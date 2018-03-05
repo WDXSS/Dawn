@@ -9,9 +9,10 @@ import android.view.ViewGroup;
 import java.util.List;
 
 /**
+ * CommonAdapter 使用
  * Created by zc on 2017/3/30.
  */
-
+@Deprecated
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
     private int layoutId;
     private Context con;

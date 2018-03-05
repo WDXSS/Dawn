@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.dawndemo.ui.binding.BindObservableActivity;
+import com.dawndemo.ui.binding.BindObservableListActivity;
 import com.dawndemo.ui.binding.DataBindingActivity;
 
 /**
@@ -18,14 +19,30 @@ public class MainBean {
         mContext = context;
     }
 
-    public String getBtnText1(){
+    public String getBtnText1() {
         return "to DataBindingActivity";
     }
-    public void startDataBindingActivity(){
+
+    public String getBtnText2() {
+        return "to BindObservableActivity";
+    }
+
+    public String getBtnText3() {
+        return "to BindObservableListActivity";
+    }
+
+    public String getBtnText4() {
+        return "to BindObservableFragment";
+    }
+
+    public void startDataBindingActivity() {
         mContext.startActivity(new Intent(mContext, DataBindingActivity.class));
     }
 
-    public void startObservableActivity(){
+    public void startObservableActivity() {
         mContext.startActivity(new Intent(mContext, BindObservableActivity.class));
+    }
+    public void startObservableListActivity() {
+        mContext.startActivity(new Intent(mContext, BindObservableListActivity.class));
     }
 }

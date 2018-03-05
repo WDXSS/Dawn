@@ -58,9 +58,12 @@
         <activity android:name=".ui.binding.DataBindingMainActivity"/>
         <activity android:name=".ui.binding.DataBindingActivity"/>
         <activity android:name=".ui.binding.EditActivity"/>
+        <activity android:name=".ui.binding.BindObservableActivity"/>
+        <activity android:name=".ui.binding.BindObservableListActivity"/>
 
         <activity android:name=".ui.notify.NotifyMainActivity"/>
         <activity android:name=".ui.notify.NotifyOpenActivity"/>
+
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
