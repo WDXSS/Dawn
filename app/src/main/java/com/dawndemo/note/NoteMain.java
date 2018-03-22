@@ -5,7 +5,7 @@ package com.dawndemo.note;
  * 使用别名 ：{@linkplain com.dawndemo.note.NoteMain 注释}展示类 <br/>
 *   NoteMain 中包含的方法{@link com.dawndemo.note.NoteUtils.Method} <br/>
  *  @see #method() <br/>
- *  @see <a href="https://juejin.im/entry/5852390d128fe1006d997f24">注释参考url</a>
+ *  @see <a href="https://www.jianshu.com/p/54e8964730b4">注释参考url</a>
  */
 public class NoteMain {
 
