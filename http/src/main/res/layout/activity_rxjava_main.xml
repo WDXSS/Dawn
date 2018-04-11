@@ -25,7 +25,13 @@
                 android:id="@+id/btn_02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rxjava 01"
+                android:text="Rxjava 02 线程"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/btn_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rxjava 03 变换操作符map"
                 android:textAllCaps="false"/>
         </LinearLayout>
 

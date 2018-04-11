@@ -20,7 +20,8 @@ import origin.com.http.R;
  * Rxjava2 线程
  * {@linkplain #defThread() 默认在同一个线程}<br>
  * {@linkplain #createThread() 新的线程}<br>
- * {@linkplain #stuadeSchedulers() Schedulers提供的子线程}<br>
+ * {@linkplain #studySchedulers() Schedulers提供的子线程}<br>
+ *  {@linkplain #studyThread() 学以致用  下游调用 多次observeOn()}<br>
  * <a href="https://www.jianshu.com/p/8818b98c44e2">RxJava 第二讲</a> <br>
  * Created by zc on 2018/4/11.
  */
@@ -153,11 +154,48 @@ public class Rxjava02Activity extends AppCompatActivity {
      * Schedulers.newThread() 代表一个常规的新线程 <br>
      * AndroidSchedulers.mainThread() 代表Android的主线程<br>
      */
-    private void stuadeSchedulers() {
+    private void studySchedulers() {
 //        Schedulers.io() 代表io操作的线程, 通常用于网络,读写文件等io密集型的操作
 //        Schedulers.computation() 代表CPU计算密集型的操作, 例如需要大量计算的操作
 //        Schedulers.newThread() 代表一个常规的新线程
 //        AndroidSchedulers.mainThread() 代表Android的主线程
 
     }
+
+    /**
+     * 学以致用  下游调用 多次observeOn() <br>
+     */
+    private void studyThread() {
+
+//        api.register(new RegisterRequest())            //发起注册请求
+//                .subscribeOn(Schedulers.io())               //在IO线程进行网络请求
+//                .observeOn(AndroidSchedulers.mainThread())  //回到主线程去处理请求注册结果
+//                .doOnNext(new Consumer<RegisterResponse>() {
+//                    @Override
+//                    public void accept(RegisterResponse registerResponse) throws Exception {
+//                        //先根据注册的响应结果去做一些操作
+//                    }
+//                })
+//                .observeOn(Schedulers.io())                 //回到IO线程去发起登录请求
+//                .flatMap(new Function<RegisterResponse, ObservableSource<LoginResponse>>() {
+//                    @Override
+//                    public ObservableSource<LoginResponse> apply(RegisterResponse registerResponse) throws Exception {
+//                        return api.login(new LoginRequest());
+//                    }
+//                })
+//                .observeOn(AndroidSchedulers.mainThread())  //回到主线程去处理请求登录的结果
+//                .subscribe(new Consumer<LoginResponse>() {   //建立连接
+//                    @Override
+//                    public void accept(LoginResponse loginResponse) throws Exception {
+//                        Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+//                    }
+//                }, new Consumer<Throwable>() {
+//                    @Override
+//                    public void accept(Throwable throwable) throws Exception {
+//                        Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
+    }
+
 }

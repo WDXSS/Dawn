@@ -33,6 +33,14 @@ public class RxjavaMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.btn_02).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(RxjavaMainActivity.this,Rxjava03Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
