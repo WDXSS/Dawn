@@ -1,1 +1,1 @@
-include ':app', ':recycleview-library'
+include ':app', ':recycleview-library', ':effectivejava', ':http'

@@ -1,0 +1,14 @@
+<manifest package="origin.com.http"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application>
+
+        <activity android:name=".retrofit.ui.RetrofitMainActivity"/>
+        <activity android:name=".retrofit.ui.SimpleRetrofitActivity"/>
+        <activity android:name=".rxjava.RxjavaMainActivity"/>
+        <activity android:name=".rxjava.Rxjava01Activity"/>
+        <activity android:name=".rxjava.Rxjava02Activity"/>
+    </application>
+</manifest>
