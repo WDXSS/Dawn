@@ -33,7 +33,7 @@ public class RxjavaMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        findViewById(R.id.btn_02).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_03).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -41,6 +41,7 @@ public class RxjavaMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
 

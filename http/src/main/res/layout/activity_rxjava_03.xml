@@ -15,7 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text="Rxjava学习线程"
+        android:text="Rxjava学习之map"
         />
-
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="map基础用法"
+    android:textAllCaps="false"
+    android:onClick="simple"
+    />
 </LinearLayout>
