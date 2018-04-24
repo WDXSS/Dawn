@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,11 +18,33 @@
         android:padding="5dp"
         android:text="Rxjava学习之map"
         />
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="map基础用法"
-    android:textAllCaps="false"
-    android:onClick="simple"
-    />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="simple"
+        android:text="map基础用法"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="simple2"
+        android:text="map基础用法2"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="flatMap"
+        android:text="flatMap基础用法1"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mapOrFlatMap"
+        android:text="flatMap和map"
+        android:textAllCaps="false"
+        />
 </LinearLayout>
