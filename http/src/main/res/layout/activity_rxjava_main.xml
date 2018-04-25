@@ -33,6 +33,12 @@
                 android:layout_height="wrap_content"
                 android:text="Rxjava 03 变换操作符map"
                 android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/btn_04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rxjava 04 zip操作符"
+                android:textAllCaps="false"/>
         </LinearLayout>
 
 

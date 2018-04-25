@@ -50,6 +50,7 @@ public class Rxjava01Activity extends AppCompatActivity{
         Observer<Integer> observer = new Observer<Integer>() {
             @Override
             public void onSubscribe(Disposable d) {
+//                Disposable.dispose()可以切断上游联系
                 Log.i(TAG, "onSubscribe: ");
             }
 

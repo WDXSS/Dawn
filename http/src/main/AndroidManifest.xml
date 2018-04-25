@@ -11,5 +11,6 @@
         <activity android:name=".rxjava.Rxjava01Activity"/>
         <activity android:name=".rxjava.Rxjava02Activity"/>
         <activity android:name=".rxjava.Rxjava03Activity"/>
+        <activity android:name=".rxjava.Rxjava04Activity"/>
     </application>
 </manifest>

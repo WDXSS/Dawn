@@ -8,7 +8,7 @@ package origin.com.http.rxjava.bean;
 public class Course {
     private String id;
     private String courseName;
-
+    private Score score;//成绩
     public String getId() {
         return id;
     }
@@ -23,5 +23,13 @@ public class Course {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
     }
 }
