@@ -49,6 +49,15 @@ public class RxjavaMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.btn_05_07).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(RxjavaMainActivity.this,Rxjava05_07Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
