@@ -45,6 +45,18 @@
                 android:layout_height="wrap_content"
                 android:text="Rxjava 05_07 flowable"
                 android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/btn_08"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rxjava08"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/btn_09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rxjava09"
+                android:textAllCaps="false"/>
         </LinearLayout>
 
 

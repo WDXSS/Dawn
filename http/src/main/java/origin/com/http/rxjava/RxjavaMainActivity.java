@@ -58,6 +58,22 @@ public class RxjavaMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.btn_08).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(RxjavaMainActivity.this,Rxjava08Activity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.btn_09).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(RxjavaMainActivity.this,Rxjava09Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

@@ -14,6 +14,8 @@ import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import origin.com.http.R;
 
 
@@ -24,6 +26,7 @@ import origin.com.http.R;
  * <a href="https://www.jianshu.com/p/9b1304435564">第7讲</a> <br>
  * Flowable (上游)，Subscriber下游 <br>
  * {@linkplain #flowable(View) Flowable的基础用法} <br>
+ *
  * Created by zc on 2018/4/25.
  */
 
@@ -34,18 +37,8 @@ public class Rxjava05_07Activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_rxjava_05_07);
-//        setContentView(R.layout.activity_rxjava_04);
 
-        findViewById(R.id.request).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSubscription.request(3);
-            }
-        });
     }
-
-
-
     /**
      * Flowable 基础用法<br/>
      * {@link BackpressureStrategy#ERROR}BackpressureStrategy.ERROR 上下游流速不均衡时抛出异常
@@ -95,50 +88,5 @@ public class Rxjava05_07Activity extends AppCompatActivity{
         flowable.subscribe(subscriber);
     }
 
-
-
-
-    private Subscription mSubscription;
-    /**
-     * BackpressureStrategy.DROP 的效果
-     * @param view
-     */
-    public void drop(View view){
-        Flowable<Integer> flowable = Flowable.create(new FlowableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(FlowableEmitter<Integer> emitter) throws Exception {
-                for (int i = 0; i < 10000; i++) {
-                    emitter.onNext(i);
-                    Thread.sleep(20);
-                }
-                emitter.onComplete();
-            }
-        },BackpressureStrategy.DROP);
-
-        Subscriber<Integer> subscriber = new Subscriber<Integer>() {
-            @Override
-            public void onSubscribe(Subscription s) {
-                Log.d(TAG, "onSubscribe: ");
-                mSubscription = s;
-                s.request(3);//接收上游 数量
-            }
-
-            @Override
-            public void onNext(Integer integer) {
-                Log.d(TAG, "onNext: int = " +integer);
-            }
-
-            @Override
-            public void onError(Throwable t) {
-                Log.d(TAG, "onError: ");
-            }
-
-            @Override
-            public void onComplete() {
-                Log.d(TAG, "onComplete: ");
-            }
-        };
-        flowable.subscribe(subscriber);
-    }
 
 }
