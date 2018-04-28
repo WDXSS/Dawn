@@ -24,4 +24,26 @@
         android:text="zip基础用法"
         android:textAllCaps="false"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="concat"
+        android:text="concat 合并 基础用法"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="distinct"
+        android:text="distinct 去重 基础用法"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="filter"
+        android:text="filter 过滤 基础用法"
+        android:textAllCaps="false"
+        />
+
 </LinearLayout>
