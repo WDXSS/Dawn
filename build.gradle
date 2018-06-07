@@ -10,7 +10,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
@@ -24,14 +23,18 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        maven {
+            url "https://jitpack.io"
+        }
     }
+
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-ext{
+ext {
     //统一版本号
     compileSdkVersion = 26
     buildToolsVersion = '26.0.2'
@@ -40,4 +43,13 @@ ext{
     versionCode = 1
     versionName = '1.0'
     applicationId = "com.dawndemo"
+
+    //libraries dependencies
+    //androidStudio多个module时dependencies的管理 https://www.jianshu.com/p/7b3badef3438
+    supportDependencies = [
+            supportAppcompat: "com.android.support:appcompat-v7:26.1.0",
+            network         : "com.amitshekhar.android:rx2-android-networking:1.0.0"
+    ]
+
+
 }

@@ -3,6 +3,8 @@ package com.dawndemo;
 import android.app.Application;
 import android.util.Log;
 
+import com.androidnetworking.AndroidNetworking;
+
 /**
  * Created by zc on 2017/3/30.
  */
@@ -15,5 +17,7 @@ public class App extends Application {
         super.onCreate();
         app = this;
         Log.i(TAG, "onCreate: company_zc");
+        //used in rxjava2
+        AndroidNetworking.initialize(getApplicationContext());
     }
 }

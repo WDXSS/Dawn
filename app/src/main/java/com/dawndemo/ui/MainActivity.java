@@ -22,6 +22,7 @@ import com.dawndemo.ui.notify.NotifyMainActivity;
 import com.dawndemo.ui.service.ServiceActivity;
 import com.dawndemo.ui.zmservice.ZMActivity;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -53,16 +54,19 @@ public class MainActivity extends BaseActivity {
     private String[] titles = {"NavigationActivity", "NavigationBarActivity"    , "ShareElement1",
                                 "ServiceActivity"  , "ZMActivity"               ,"BannerActivity",
                                 "RecyclerActivity" ,"DrawableBackgroundActivity", "TextWatcherActivity",
-                                "DrawableBackgroundActivity","NotifyMainActivity","RetrofitMainActivity"};
+                                "DrawableBackgroundActivity","NotifyMainActivity","RetrofitMainActivity",
+                                };
 
     private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
                              "study service", "测试Service 的回调", "广告位",
                             "recyclerView study","画不同的背景","EditText 输入的监听",
-                             "DataBindingMainActivity", "NotifyMainActivity","RetrofitMainActivity"};
+                             "DataBindingMainActivity", "NotifyMainActivity","RetrofitMainActivity",
+                             };
     private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
                             ServiceActivity.class, ZMActivity.class, BannerActivity.class,
                             RecyclerActivity.class, DrawableBackgroundActivity.class,TextWatcherActivity.class,
-                            DataBindingMainActivity.class, NotifyMainActivity.class, RetrofitMainActivity.class};
+                            DataBindingMainActivity.class, NotifyMainActivity.class, RetrofitMainActivity.class,
+                            };
 
 
 

@@ -1,0 +1,10 @@
+2018/5/22
+1.多个module 依赖同一个库
+实现project 下的 build.gradle
+创建全局的ext{
+
+}
+https://www.jianshu.com/p/7b3badef3438
+
+2.gradle 配置多个代码仓库
+  实现project 下的 build.gradle

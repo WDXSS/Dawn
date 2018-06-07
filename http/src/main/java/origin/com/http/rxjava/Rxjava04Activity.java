@@ -139,7 +139,7 @@ public class Rxjava04Activity extends AppCompatActivity {
      * distinct 操作符--去重 <br/>
      */
     public void distinct(View view) {
-        Observable.just(1, 2, 2, 3, 3, 4, 5)
+        Observable.just( 1, 2, 2, 3, 3, 4, 5)
                 .distinct()//去重
                 .subscribe(new Consumer<Integer>() {
                     @Override
