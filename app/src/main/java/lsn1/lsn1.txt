@@ -1,0 +1,26 @@
+Ui 绘制流程
+1.查看源码的方式
+  1》要jar包
+
+
+1.Android程序是如何启动,Activity生命周期如何调用？
+2.在Activity  onCreate当中我们的setContentView是如何将UI文件加载？
+3.UI是如何绘制的？
+
+
+binder 学习
+handler 机制
+
+
+
+
+
+名词
+record
+attach
+schedule
+launch
+decorView
+feature
+global
+perform
