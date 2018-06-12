@@ -55,18 +55,18 @@ public class MainActivity extends BaseActivity {
                                 "ServiceActivity"  , "ZMActivity"               ,"BannerActivity",
                                 "RecyclerActivity" ,"DrawableBackgroundActivity", "TextWatcherActivity",
                                 "DrawableBackgroundActivity","NotifyMainActivity","RetrofitMainActivity",
-                                };
+                                "SpanActivity"};
 
     private String[] des = {"BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
                              "study service", "测试Service 的回调", "广告位",
                             "recyclerView study","画不同的背景","EditText 输入的监听",
                              "DataBindingMainActivity", "NotifyMainActivity","RetrofitMainActivity",
-                             };
+                             "SpannerString 学习"};
     private Class[] classNames = new Class[]{NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
                             ServiceActivity.class, ZMActivity.class, BannerActivity.class,
                             RecyclerActivity.class, DrawableBackgroundActivity.class,TextWatcherActivity.class,
                             DataBindingMainActivity.class, NotifyMainActivity.class, RetrofitMainActivity.class,
-                            };
+                            SpanActivity.class};
 
 
 

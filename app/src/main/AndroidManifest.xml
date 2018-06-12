@@ -63,6 +63,7 @@
 
         <activity android:name=".ui.notify.NotifyMainActivity"/>
         <activity android:name=".ui.notify.NotifyOpenActivity"/>
+        <activity android:name=".ui.SpanActivity"/>
 
 
     </application>
