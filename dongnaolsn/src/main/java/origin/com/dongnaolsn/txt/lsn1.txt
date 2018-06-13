@@ -1,5 +1,5 @@
 Ui 绘制流程
-1.查看源码的方式
+1.查看源码的方式 工具？1.Chrome插件 Android SDK Search  2.Source Insight
   1》要jar包
 
 
