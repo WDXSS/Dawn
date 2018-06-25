@@ -43,13 +43,19 @@
         <!-- 测试服务，回调 -->
         <service android:name=".ui.zmservice.ZMService"/>
 
-        <activity android:name=".ui.zmservice.ZMActivity"
+        <activity
+            android:name=".ui.zmservice.ZMActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ui.zmservice.ZMActivityTest2"/>
 
         <activity android:name=".ui.BannerActivity"/>
         <activity android:name=".recycler.ui.RecyclerListActivity"/>
-        <activity android:name=".recycler.ui.RecyclerActivity"/>
+
+        <activity android:name=".recycler.ui.RecyclerActivity"
+                  android:configChanges="orientation|keyboardHidden|screenSize"
+                  android:screenOrientation="landscape"
+                  android:windowSoftInputMode="adjustPan|stateHidden"
+            />
         <activity android:name=".recycler.ui.LibRecyclerActivity"/>
 
         <activity android:name=".ui.DrawableBackgroundActivity"/>
@@ -64,7 +70,19 @@
         <activity android:name=".ui.notify.NotifyMainActivity"/>
         <activity android:name=".ui.notify.NotifyOpenActivity"/>
         <activity android:name=".ui.SpanActivity"/>
-
+        <activity
+            android:name=".animal.TestAnimalActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateHidden"
+            />
+        <activity
+            android:name=".animal.TestDialogActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".viewPager.TestViewPagerActivity"></activity>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
