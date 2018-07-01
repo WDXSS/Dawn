@@ -51,8 +51,6 @@ public class TestAnimalActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-
-
                 if (isState) {
                     AnimatorSet animatorSet = new AnimatorSet();
                     animatorSet.playTogether(
@@ -165,5 +163,12 @@ public class TestAnimalActivity extends BaseActivity {
                 Log.i(TAG, "onWindowFocusChanged: ");
             }
         });
+    }
+
+
+    public void keyBoardTest1(View view){
+        Intent intent = new Intent();
+        intent.setClass(this,Keyboard1Activity.class);
+        startActivity(intent);
     }
 }

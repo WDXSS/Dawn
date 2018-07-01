@@ -4,17 +4,20 @@
                 android:layout_height="match_parent"
                 android:background="@mipmap/img22"
     >
-<Button
-    android:id="@+id/move_btn"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="点击"
-    />
+
+    <Button
+        android:id="@+id/move_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点击"
+        />
+
     <TextView
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         />
+
     <EditText
         android:id="@+id/edit_input"
         android:layout_width="match_parent"
@@ -22,4 +25,19 @@
         android:layout_alignParentBottom="true"
         />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        >
+
+        <Button
+            android:id="@+id/key_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="keyBoardTest1"
+            android:text="键盘测试1"
+            />
+
+    </RelativeLayout>
 </RelativeLayout>

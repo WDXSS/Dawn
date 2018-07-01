@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="@mipmap/bg_default_update"
+
+
+    >
+
+    <!--  <android.support.v7.widget.Toolbar
+          android:id="@+id/toolbar"
+          app:layout_constraintTop_toBottomOf="@+id/top_edit"
+          style="@style/toolbarStyle">
+
+      </android.support.v7.widget.Toolbar>-->
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="全屏状态下测试，上下两个输入框窗体调整"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/bottom_edit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"/>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#98000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_edit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:fitsSystemWindows="true"
+        >
+
+        <EditText
+            android:id="@+id/top_edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="50dp"
+            />
+
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
