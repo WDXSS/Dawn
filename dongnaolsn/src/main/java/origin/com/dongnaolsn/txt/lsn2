@@ -7,10 +7,12 @@ UI绘制
 
 1.测量流程
 
+    1>performMeasure();
+    2>performLayout();
+    3>performDraw();
+
     1.3 具体测量原理
-
         数据传输规则
-
 2.布局流程
 
 
@@ -28,7 +30,7 @@ ViewRootImpl.class
 0x3 << MODE_SHIFT; ? MODE_SHIFT = 30;
 
 m名词
-perform    performMeasure
+perform  执行  performMeasure
 measure 测量
 invalidate
 
