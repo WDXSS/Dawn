@@ -19,13 +19,15 @@ public class PathView extends View {
     private Paint mDefPaint;
     private int mViewWidth;
     private int mViewHeight;
+    private Paint mPaint;
+    private Paint mPaint0;
 
     public PathView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public PathView(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public PathView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -43,39 +45,113 @@ public class PathView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //设置画布背景
+        canvas.drawColor(Color.WHITE);
         // 平移坐标系
         canvas.translate(mViewWidth / 2, mViewHeight / 2);
 //        // 画坐标线
-//        canvas.drawLine(-canvas.getWidth(), 0, canvas.getWidth(), 0, mDefPaint);
-//        canvas.drawLine(0, -canvas.getHeight(), 0, canvas.getHeight(), mDefPaint);
+//        canvas.drawLine(-canvas.getWidth(), 0, canvas.getWidth(), 0, mPaint);
+//        canvas.drawLine(0, -canvas.getHeight(), 0, canvas.getHeight(), mPaint);
 
-        testForceClose(canvas);
+//        testForceClose(canvas);
+//        testGetSegment(canvas);
+        testGetSegmentMoveTo(canvas);
     }
 
-    private void initView(){
-        //第一步 创建画笔
+    private void initView() {
+
         mDefPaint = new Paint();
-        mDefPaint.setColor(Color.RED);
-        mDefPaint.setStrokeWidth(5);
+        mDefPaint.setColor(Color.BLACK);
+        mDefPaint.setStrokeWidth(1);
         mDefPaint.setStyle(Paint.Style.STROKE);
+
+        //第一步 创建画笔
+        mPaint0 = new Paint();
+        mPaint0.setColor(Color.BLUE);
+        mPaint0.setStrokeWidth(5);
+        mPaint0.setStyle(Paint.Style.STROKE);
+
+        mPaint = new Paint();
+        mPaint.setColor(Color.GREEN);
+        mPaint.setStrokeWidth(5);
+        mPaint.setStyle(Paint.Style.STROKE);
+
     }
 
-    private void testForceClose(Canvas canvas){
+    /**
+     * 测试ForceClose的值
+     *
+     * @param canvas
+     */
+    private void testForceClose(Canvas canvas) {
         //第一步  初始化 Path
         Path path = new Path();
         path.lineTo(0, 200);
         path.lineTo(200, 200);
-//        path.lineTo(200, 0);
-//        path.rLineTo(200,200);
-
+        path.lineTo(200, 0);
+        path.rLineTo(200, 200);
+        //第二步 创建PathMeasure
         PathMeasure pathMeasure1 = new PathMeasure();
-        pathMeasure1.setPath(path,false);
+        pathMeasure1.setPath(path, false);
 
         PathMeasure pathMeasure2 = new PathMeasure();
-        pathMeasure2.setPath(path,true);
+//       true 表示起点和终点闭合了,但不是说path图形闭合了
+        pathMeasure2.setPath(path, true);
         Log.i(TAG, "forceClosed=false length = " + pathMeasure1.getLength());
         Log.i(TAG, "forceClosed=true length = " + pathMeasure2.getLength());
 
-        canvas.drawPath(path,mDefPaint);
+        canvas.drawPath(path, mDefPaint);
+    }
+    /**
+     * 路径截取，且不移动开始点
+     *
+     * @param canvas
+     */
+    private void testGetSegment(Canvas canvas) {
+        Path path = new Path();
+        // 创建Path并添加了一个矩形
+        path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+
+        Path dst = new Path();
+        // 将 Path 与 PathMeasure 关联
+        PathMeasure measure = new PathMeasure(path, false);
+
+        // 截取一部分存入dst中，并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
+//        startD:开始截取位置距离path起点的位置,这不是一个坐标值,是没有负数的
+//        stopD:结束点距离path起点的位置,同理上,这个是小于等于path的总长度(pathmeasure.getLength())
+//        startWidthMoveTo:表示起点位置是否使用moveTo()
+        measure.getSegment(200, 600, dst, false);
+
+        canvas.drawPath(path, mPaint);
+        // 绘制 dst
+        canvas.drawPath(dst, mPaint0);
+        //startWidthMoveTo true/false
+        Log.d(TAG, "testGetSegment: startWithMoveTo = true dst.length = "+measure.getLength());
+    }
+
+    /**
+     * 路径截取，移动开始点
+     *
+     * @param canvas
+     */
+    private void testGetSegmentMoveTo(Canvas canvas) {
+        Path path = new Path();
+        // 创建Path并添加了一个矩形
+        path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+
+        Path dst = new Path();
+//        dst.lineTo(-300, -300);
+        // 将 Path 与 PathMeasure 关联
+        PathMeasure measure = new PathMeasure(path, false);
+
+        // 截取一部分存入dst中，并使用 moveTo 保持截取得到的 Path
+        measure.getSegment(200, 600, dst, false);
+        //measure.getSegment(200, 600, dst, true);
+        PathMeasure dstMeasure = new PathMeasure(dst, false);
+
+        canvas.drawPath(path, mPaint);
+        // 绘制 dst
+        canvas.drawPath(dst, mPaint0);
+        Log.d(TAG, "testGetSegment: startWithMoveTo = true dst.length = "+dstMeasure.getLength());
     }
 }
