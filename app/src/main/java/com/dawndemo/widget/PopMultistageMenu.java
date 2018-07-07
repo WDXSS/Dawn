@@ -1,4 +1,4 @@
-package com.dawndemo.wighet;
+package com.dawndemo.widget;
 
 import android.content.Context;
 import android.support.v4.util.Pair;

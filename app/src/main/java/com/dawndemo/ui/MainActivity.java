@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.dawndemo.Bean.MainBean;
 import com.dawndemo.R;
 import com.dawndemo.animal.TestAnimalActivity;
+import com.dawndemo.animal.drag.DragFloatActivity;
 import com.dawndemo.base.BaseActivity;
 import com.dawndemo.base.BaseAdapter;
 import com.dawndemo.base.BaseViewHolder;
@@ -23,7 +24,6 @@ import com.dawndemo.ui.notify.NotifyMainActivity;
 import com.dawndemo.ui.service.ServiceActivity;
 import com.dawndemo.ui.zmservice.ZMActivity;
 import com.dawndemo.viewPager.TestViewPagerActivity;
-
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,23 +54,25 @@ public class MainActivity extends BaseActivity {
     private String TAG = "MainActivity";
     private String s = "zc_company_zc_dev";
 
-    private String[] titles = {"dongNao lsn","NavigationActivity", "NavigationBarActivity"    , "ShareElement1",
-                                "ServiceActivity"  , "ZMActivity"               ,"BannerActivity",
-                                "RecyclerActivity" ,"DrawableBackgroundActivity", "TextWatcherActivity",
-                                "DrawableBackgroundActivity","NotifyMainActivity","RetrofitMainActivity",
-                                "SpanActivity","TestAnimalActivity","TestViewPagerActivity"};
+    private String[] titles = {"dongNao lsn", "NavigationActivity", "NavigationBarActivity", "ShareElement1",
+            "ServiceActivity", "ZMActivity", "BannerActivity",
+            "RecyclerActivity", "DrawableBackgroundActivity", "TextWatcherActivity",
+            "DrawableBackgroundActivity", "NotifyMainActivity", "RetrofitMainActivity",
+            "SpanActivity", "TestAnimalActivity", "TestViewPagerActivity",
+            "DragFloatActivity"};
 
-    private String[] des = {"动脑学院学习练习","BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
-                             "study service", "测试Service 的回调", "广告位",
-                            "recyclerView study","画不同的背景","EditText 输入的监听",
-                             "DataBindingMainActivity", "NotifyMainActivity","RetrofitMainActivity",
-                             "SpannerString 学习","动画和软键盘监听","viewPager滑动事件拦截"};
-    private Class[] classNames = new Class[]{DNMainActivity.class,NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
-                            ServiceActivity.class, ZMActivity.class, BannerActivity.class,
-                            RecyclerActivity.class, DrawableBackgroundActivity.class,TextWatcherActivity.class,
-                            DataBindingMainActivity.class, NotifyMainActivity.class, RetrofitMainActivity.class,
-                            SpanActivity.class,TestAnimalActivity.class,TestViewPagerActivity.class};
-
+    private String[] des = {"动脑学院学习练习", "BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
+            "study service", "测试Service 的回调", "广告位",
+            "recyclerView study", "画不同的背景", "EditText 输入的监听",
+            "DataBindingMainActivity", "NotifyMainActivity", "RetrofitMainActivity",
+            "SpannerString 学习", "动画和软键盘监听", "viewPager滑动事件拦截",
+            "DragFloatActivity 悬浮球"};
+    private Class[] classNames = new Class[]{DNMainActivity.class, NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
+            ServiceActivity.class, ZMActivity.class, BannerActivity.class,
+            RecyclerActivity.class, DrawableBackgroundActivity.class, TextWatcherActivity.class,
+            DataBindingMainActivity.class, NotifyMainActivity.class, RetrofitMainActivity.class,
+            SpanActivity.class, TestAnimalActivity.class, TestViewPagerActivity.class,
+            DragFloatActivity.class};
 
 
     @Override

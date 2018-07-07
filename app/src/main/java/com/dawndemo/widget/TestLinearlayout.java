@@ -1,10 +1,8 @@
-package com.dawndemo.wighet;
+package com.dawndemo.widget;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 

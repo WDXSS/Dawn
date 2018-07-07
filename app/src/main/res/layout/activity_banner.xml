@@ -9,12 +9,12 @@
         android:layout_height="wrap_content"
         >
 
-        <com.dawndemo.wighet.banner.BannerView
+        <com.dawndemo.widget.banner.BannerView
             android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="180dp"/>
 
-        <com.dawndemo.wighet.banner.ScrollPoint
+        <com.dawndemo.widget.banner.ScrollPoint
             android:id="@+id/point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:text="继承RelativeLayout ,可以添加标记"
         />
 
-    <com.dawndemo.wighet.banner.adm.AdmBannerView
+    <com.dawndemo.widget.banner.adm.AdmBannerView
         android:id="@+id/adm_banner"
         android:layout_width="match_parent"
         android:layout_height="180dp"

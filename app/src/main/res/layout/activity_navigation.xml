@@ -8,11 +8,11 @@
         android:layout_height="wrap_content"
         android:text="Bottom navigation bars make it easy for users to explore and switch between top-level views in a single tap. It should be used when application has three to five top-level destinations"
         />
-<com.dawndemo.wighet.TestLinearlayout
+<com.dawndemo.widget.TestLinearlayout
     android:id="@+id/test"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
-    <com.dawndemo.wighet.DropdownView
+    <com.dawndemo.widget.DropdownView
         android:id="@+id/dropDownView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

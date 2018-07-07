@@ -1,4 +1,4 @@
-package com.dawndemo.wighet.banner;
+package com.dawndemo.widget.banner;
 
 import android.content.Context;
 import android.util.AttributeSet;

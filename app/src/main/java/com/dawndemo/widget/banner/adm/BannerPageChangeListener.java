@@ -1,4 +1,4 @@
-package com.dawndemo.wighet.banner.adm;
+package com.dawndemo.widget.banner.adm;
 
 import android.support.v4.view.ViewPager;
 import android.util.Log;

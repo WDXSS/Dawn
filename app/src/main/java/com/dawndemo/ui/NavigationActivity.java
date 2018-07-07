@@ -9,10 +9,8 @@ import com.dawndemo.Bean.TypeBean;
 import com.dawndemo.R;
 import com.dawndemo.base.BaseActivity;
 import com.dawndemo.util.ListUtil;
-import com.dawndemo.wighet.DropdownView;
-import com.dawndemo.wighet.TestLinearlayout;
-
-import org.json.JSONObject;
+import com.dawndemo.widget.DropdownView;
+import com.dawndemo.widget.TestLinearlayout;
 
 import java.util.ArrayList;
 import java.util.List;

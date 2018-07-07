@@ -3,12 +3,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <com.dawndemo.wighet.banner.adm.BannerViewPager
+    <com.dawndemo.widget.banner.adm.BannerViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.dawndemo.wighet.banner.ScrollPoint
+    <com.dawndemo.widget.banner.ScrollPoint
         android:id="@+id/scroll_point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

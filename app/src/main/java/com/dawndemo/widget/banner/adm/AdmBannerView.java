@@ -1,4 +1,4 @@
-package com.dawndemo.wighet.banner.adm;
+package com.dawndemo.widget.banner.adm;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.dawndemo.R;
-import com.dawndemo.wighet.banner.ScrollPoint;
+import com.dawndemo.widget.banner.ScrollPoint;
 
 
 /**

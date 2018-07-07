@@ -2,19 +2,18 @@ package com.dawndemo.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.ViewUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.dawndemo.R;
 import com.dawndemo.base.BaseActivity;
-import com.dawndemo.wighet.banner.ScrollPoint;
-import com.dawndemo.wighet.banner.adm.AdmBannerView;
-import com.dawndemo.wighet.banner.BannerAdapter;
-import com.dawndemo.wighet.banner.BannerBean;
-import com.dawndemo.wighet.banner.BannerView;
-import com.dawndemo.wighet.banner.adm.AdmBannerAdapter;
+import com.dawndemo.widget.banner.ScrollPoint;
+import com.dawndemo.widget.banner.adm.AdmBannerView;
+import com.dawndemo.widget.banner.BannerAdapter;
+import com.dawndemo.widget.banner.BannerBean;
+import com.dawndemo.widget.banner.BannerView;
+import com.dawndemo.widget.banner.adm.AdmBannerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

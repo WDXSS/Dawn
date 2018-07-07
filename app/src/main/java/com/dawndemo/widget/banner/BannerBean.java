@@ -1,4 +1,4 @@
-package com.dawndemo.wighet.banner;
+package com.dawndemo.widget.banner;
 
 /**
  * Created by zc on 2017/7/16.

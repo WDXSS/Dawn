@@ -83,7 +83,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".viewPager.TestViewPagerActivity"></activity>
+        <activity android:name=".viewPager.TestViewPagerActivity"/>
         <activity
             android:name=".animal.Keyboard1Activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -91,6 +91,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateHidden"
             />
+        <activity android:name=".animal.drag.DragFloatActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--<uses-permission android:name="android.permission.VIBRATE"/>-->

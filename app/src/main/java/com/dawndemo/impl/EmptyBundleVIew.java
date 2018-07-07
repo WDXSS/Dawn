@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.dawndemo.base.BaseBundleView;
-import com.dawndemo.wighet.EmptyLayout;
+import com.dawndemo.widget.EmptyLayout;
 
 /**
  * 没有内容时显示的UI
