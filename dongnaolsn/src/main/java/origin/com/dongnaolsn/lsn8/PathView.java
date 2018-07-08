@@ -49,13 +49,59 @@ public class PathView extends View {
         canvas.drawColor(Color.WHITE);
         // 平移坐标系
         canvas.translate(mViewWidth / 2, mViewHeight / 2);
-//        // 画坐标线
-//        canvas.drawLine(-canvas.getWidth(), 0, canvas.getWidth(), 0, mPaint);
-//        canvas.drawLine(0, -canvas.getHeight(), 0, canvas.getHeight(), mPaint);
+        // 画坐标线
+        canvas.drawLine(-canvas.getWidth(), 0, canvas.getWidth(), 0, mPaint);
+        canvas.drawLine(0, -canvas.getHeight(), 0, canvas.getHeight(), mPaint);
 
 //        testForceClose(canvas);
 //        testGetSegment(canvas);
-        testGetSegmentMoveTo(canvas);
+//        testGetSegmentMoveTo(canvas);
+        testNextContour(canvas);
+    }
+
+    /**
+     * 调到下一个
+     *
+     *
+     * @param canvas
+     */
+    private void testNextContour(Canvas canvas) {
+
+
+
+        Path path1 = new Path();
+        //Path.Direction.CCW 逆时针
+        path1.addRect(-200, -200, 200, 200, Path.Direction.CW);
+        PathMeasure pathMeasure1 = new PathMeasure();
+        pathMeasure1.setPath(path1, true);
+
+        Path path2 = new Path();
+        //Path.Direction.CCW 逆时针
+        path2.addRect(-100, -100, 100, 100, Path.Direction.CW);
+        PathMeasure pathMeasure2 = new PathMeasure();
+        pathMeasure2.setPath(path2, true);
+
+
+        Path path = new Path();
+        //组合path1 和path2
+        path.op(path1, path2, Path.Op.XOR);
+        PathMeasure pathMeasure = new PathMeasure();
+        pathMeasure.setPath(path,true);
+
+       float lens1 =  pathMeasure.getLength();
+        //调到下一个
+//        pathMeasure.nextContour();
+        float lens2 =  pathMeasure.getLength();
+
+        Log.d(TAG, "testNextContour: lens1.length = " + lens1);
+        Log.d(TAG, "testNextContour: lens2.length = " + lens2);
+        Log.d(TAG, "testNextContour: pathMeasure.length = " + pathMeasure.getLength());
+
+        canvas.drawPath(path, mPaint);
+        Log.d(TAG, "testNextContour: pathMeasure1.length = " + pathMeasure1.getLength());
+        Log.d(TAG, "testNextContour: pathMeasure2.length = " + pathMeasure2.getLength());
+
+
     }
 
     private void initView() {
@@ -89,7 +135,7 @@ public class PathView extends View {
         path.lineTo(0, 200);
         path.lineTo(200, 200);
         path.lineTo(200, 0);
-        path.rLineTo(200, 200);
+//        path.rLineTo(200, 200);
         //第二步 创建PathMeasure
         PathMeasure pathMeasure1 = new PathMeasure();
         pathMeasure1.setPath(path, false);
@@ -97,11 +143,14 @@ public class PathView extends View {
         PathMeasure pathMeasure2 = new PathMeasure();
 //       true 表示起点和终点闭合了,但不是说path图形闭合了
         pathMeasure2.setPath(path, true);
+        //ForceClose = false length = 600;
         Log.i(TAG, "forceClosed=false length = " + pathMeasure1.getLength());
+        //ForceClose = true length = 800;
         Log.i(TAG, "forceClosed=true length = " + pathMeasure2.getLength());
 
         canvas.drawPath(path, mDefPaint);
     }
+
     /**
      * 路径截取，且不移动开始点
      *
@@ -126,7 +175,7 @@ public class PathView extends View {
         // 绘制 dst
         canvas.drawPath(dst, mPaint0);
         //startWidthMoveTo true/false
-        Log.d(TAG, "testGetSegment: startWithMoveTo = true dst.length = "+measure.getLength());
+        Log.d(TAG, "testGetSegment: startWithMoveTo = true dst.length = " + measure.getLength());
     }
 
     /**
@@ -145,13 +194,13 @@ public class PathView extends View {
         PathMeasure measure = new PathMeasure(path, false);
 
         // 截取一部分存入dst中，并使用 moveTo 保持截取得到的 Path
-        measure.getSegment(200, 600, dst, false);
+        measure.getSegment(200, 600, dst, true);
         //measure.getSegment(200, 600, dst, true);
         PathMeasure dstMeasure = new PathMeasure(dst, false);
 
         canvas.drawPath(path, mPaint);
         // 绘制 dst
         canvas.drawPath(dst, mPaint0);
-        Log.d(TAG, "testGetSegment: startWithMoveTo = true dst.length = "+dstMeasure.getLength());
+        Log.d(TAG, "testGetSegment: startWithMoveTo = true dst.length = " + dstMeasure.getLength());
     }
 }
