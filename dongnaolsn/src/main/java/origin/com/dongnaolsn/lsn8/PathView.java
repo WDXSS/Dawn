@@ -1,8 +1,10 @@
 package origin.com.dongnaolsn.lsn8;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
@@ -59,15 +61,14 @@ public class PathView extends View {
         testNextContour(canvas);
     }
 
+
+
     /**
      * 调到下一个
-     *
      *
      * @param canvas
      */
     private void testNextContour(Canvas canvas) {
-
-
 
         Path path1 = new Path();
         //Path.Direction.CCW 逆时针
@@ -86,12 +87,12 @@ public class PathView extends View {
         //组合path1 和path2
         path.op(path1, path2, Path.Op.XOR);
         PathMeasure pathMeasure = new PathMeasure();
-        pathMeasure.setPath(path,true);
+        pathMeasure.setPath(path, true);
 
-       float lens1 =  pathMeasure.getLength();
+        float lens1 = pathMeasure.getLength();
         //调到下一个
 //        pathMeasure.nextContour();
-        float lens2 =  pathMeasure.getLength();
+        float lens2 = pathMeasure.getLength();
 
         Log.d(TAG, "testNextContour: lens1.length = " + lens1);
         Log.d(TAG, "testNextContour: lens2.length = " + lens2);
@@ -100,8 +101,6 @@ public class PathView extends View {
         canvas.drawPath(path, mPaint);
         Log.d(TAG, "testNextContour: pathMeasure1.length = " + pathMeasure1.getLength());
         Log.d(TAG, "testNextContour: pathMeasure2.length = " + pathMeasure2.getLength());
-
-
     }
 
     private void initView() {

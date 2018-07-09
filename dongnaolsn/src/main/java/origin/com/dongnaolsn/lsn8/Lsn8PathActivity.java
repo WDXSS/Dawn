@@ -11,6 +11,8 @@ public class Lsn8PathActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(new PathView(this));
+//        setContentView(new PathView(this));
+//        setContentView(new TanView(this));
+        setContentView(new LoadingView(this));
     }
 }
