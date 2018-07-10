@@ -92,6 +92,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden"
             />
         <activity android:name=".animal.drag.DragFloatActivity"/>
+        <activity android:name=".ui.AddViewActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--<uses-permission android:name="android.permission.VIBRATE"/>-->
