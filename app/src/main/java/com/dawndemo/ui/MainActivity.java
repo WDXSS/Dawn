@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.dawndemo.Bean.MainBean;
 import com.dawndemo.R;
 import com.dawndemo.animal.TestAnimalActivity;
+import com.dawndemo.animal.base.BaseAnimalActivity;
 import com.dawndemo.animal.drag.DragFloatActivity;
 import com.dawndemo.base.BaseActivity;
 import com.dawndemo.base.BaseAdapter;
@@ -59,20 +60,20 @@ public class MainActivity extends BaseActivity {
             "RecyclerActivity", "DrawableBackgroundActivity", "TextWatcherActivity",
             "DrawableBackgroundActivity", "NotifyMainActivity", "RetrofitMainActivity",
             "SpanActivity", "TestAnimalActivity", "TestViewPagerActivity",
-            "DragFloatActivity","AddViewActivity"};
+            "DragFloatActivity","AddViewActivity","BaseAnimalActivity"};
 
     private String[] des = {"动脑学院学习练习", "BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
             "study service", "测试Service 的回调", "广告位",
             "recyclerView study", "画不同的背景", "EditText 输入的监听",
             "DataBindingMainActivity", "NotifyMainActivity", "RetrofitMainActivity",
             "SpannerString 学习", "动画和软键盘监听", "viewPager滑动事件拦截",
-            "DragFloatActivity 悬浮球","动态添加View"};
+            "DragFloatActivity 悬浮球","动态添加View","基础动画"};
     private Class[] classNames = new Class[]{DNMainActivity.class, NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
             ServiceActivity.class, ZMActivity.class, BannerActivity.class,
             RecyclerActivity.class, DrawableBackgroundActivity.class, TextWatcherActivity.class,
             DataBindingMainActivity.class, NotifyMainActivity.class, RetrofitMainActivity.class,
             SpanActivity.class, TestAnimalActivity.class, TestViewPagerActivity.class,
-            DragFloatActivity.class,AddViewActivity.class};
+            DragFloatActivity.class,AddViewActivity.class,BaseAnimalActivity.class};
 
 
     @Override

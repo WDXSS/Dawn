@@ -1,11 +1,13 @@
 package origin.com.dongnaolsn.lsn8;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -14,6 +16,7 @@ import android.view.View;
  */
 
 public class LoadingView extends View {
+    private static final String TAG = "LoadingView";
     private int screenWith;
     private int screenHeight;
     private Paint mPaint;
@@ -73,6 +76,20 @@ public class LoadingView extends View {
         dst.reset();
         measure.getSegment(80, 120, dst, true);
         canvas.drawPath(dst, mDstPaint);
+
+    }
+
+    /**
+     * 添加动画
+     */
+    private void addAnimal(){
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(1,100);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Log.i(TAG, "onAnimationUpdate: " + animation.getAnimatedValue());
+            }
+        });
 
     }
 

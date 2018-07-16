@@ -93,6 +93,7 @@
             />
         <activity android:name=".animal.drag.DragFloatActivity"/>
         <activity android:name=".ui.AddViewActivity"/>
+        <activity android:name=".animal.base.BaseAnimalActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--<uses-permission android:name="android.permission.VIBRATE"/>-->
