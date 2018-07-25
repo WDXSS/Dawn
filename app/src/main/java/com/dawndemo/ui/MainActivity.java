@@ -2,6 +2,7 @@ package com.dawndemo.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -82,7 +83,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         testBean();
-
+        Log.i(TAG, "onCreate: sd = "+ Environment.getExternalStorageDirectory());
         data = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
             MainBean bean = new MainBean();
