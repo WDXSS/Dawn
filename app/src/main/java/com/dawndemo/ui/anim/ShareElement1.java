@@ -28,11 +28,11 @@ public class ShareElement1 extends BaseActivity {
                         ActivityOptions.makeSceneTransitionAnimation(ShareElement1.this,searchView,"sharename").toBundle());
             }
         });
-        //svg 动画
-        svg = (ImageView) findViewById(R.id.imageView);
-        Drawable drawable = svg.getDrawable();
-        if(drawable instanceof Animatable){
-            ( (Animatable)drawable).start();
-        }
+//        //svg 动画
+//        svg = (ImageView) findViewById(R.id.imageView);
+//        Drawable drawable = svg.getDrawable();
+//        if(drawable instanceof Animatable){
+//            ( (Animatable)drawable).start();
+//        }
     }
 }

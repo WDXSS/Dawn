@@ -11,6 +11,40 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:background="@drawable/shape_bg_list"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_message_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CCfff8e4"
+                android:drawablePadding="5dp"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="通知通知"
+                android:textColor="#ff643c"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="87dp"
+                android:layout_height="20dp"
+                android:layout_gravity="right|bottom"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/bg_round_white"
+                android:visibility="gone"/>
+        </FrameLayout>
     </LinearLayout>
 
 </ScrollView>
