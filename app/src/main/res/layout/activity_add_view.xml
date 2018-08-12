@@ -19,6 +19,7 @@
                 android:textAllCaps="false"
                 android:text="添加一个TextView"
                 android:onClick="addTextView"
+
                 />
             <Button
                 android:layout_width="wrap_content"
