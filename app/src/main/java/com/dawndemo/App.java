@@ -1,6 +1,7 @@
 package com.dawndemo;
 
 import android.app.Application;
+import android.app.Notification;
 import android.util.Log;
 
 import com.androidnetworking.AndroidNetworking;
@@ -19,5 +20,6 @@ public class App extends Application {
         Log.i(TAG, "onCreate: company_zc");
         //used in rxjava2
         AndroidNetworking.initialize(getApplicationContext());
+
     }
 }

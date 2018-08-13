@@ -70,6 +70,8 @@
 
         <activity android:name=".ui.notify.NotifyMainActivity"/>
         <activity android:name=".ui.notify.NotifyOpenActivity"/>
+        <activity android:name=".ui.notify.NotificationTestActivity"/>
+
         <activity android:name=".ui.SpanActivity"/>
         <activity
             android:name=".animal.TestAnimalActivity"

@@ -2,6 +2,7 @@ package com.dawndemo.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -54,5 +55,6 @@ public class TextWatcherActivity extends BaseActivity {
                 Log.i(TAG, "afterTextChanged: s = " + s);
             }
         });
+
     }
 }
