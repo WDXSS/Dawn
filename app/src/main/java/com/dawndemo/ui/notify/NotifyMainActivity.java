@@ -192,8 +192,10 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
 
     }
 
-
-
+    //8.0传送门
+    public void onPortal(View view) {
+        startActivity(new Intent(this,NotificationTestActivity.class));
+    }
 }
 
 

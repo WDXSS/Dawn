@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
+
         <Button
             android:id="@+id/btn_mi6"
             android:layout_width="wrap_content"
@@ -23,6 +24,7 @@
             android:layout_marginBottom="8dp"
             android:text="MI6通知"
             />
+
         <Button
             android:id="@+id/btn_simple"
             android:layout_width="wrap_content"
@@ -30,6 +32,7 @@
             android:layout_marginBottom="8dp"
             android:text="一个通知"
             />
+
         <Button
             android:id="@+id/btn_two"
             android:layout_width="wrap_content"
@@ -53,5 +56,18 @@
             android:text="语音义通知"
             />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="       8.0后的通知总结：通知渠道的通知
+         创建一个通知渠道至少需要渠道ID、渠道名称以及重要等级这三个参数"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onPortal"
+        android:text="8.0传送门"
+        />
 </LinearLayout>
 
