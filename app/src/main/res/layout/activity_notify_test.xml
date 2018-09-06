@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="第一级通知"
+    android:onClick="doNotify"
+    />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第二级通知"
+        android:onClick="doNotifySecond"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8.0一下没有渠道的"
+        android:onClick="lowNotification"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="显示未读角标"/>
+</LinearLayout>
