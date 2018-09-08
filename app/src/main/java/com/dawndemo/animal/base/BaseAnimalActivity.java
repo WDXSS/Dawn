@@ -2,7 +2,9 @@ package com.dawndemo.animal.base;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -19,11 +21,14 @@ import com.dawndemo.base.BaseActivity;
 public class BaseAnimalActivity extends BaseActivity{
 
     private static final String TAG = "BaseAnimalActivity";
+    private ObjectAnimator objectAnimator;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_base_animal);
+        createObjectAnimator(findViewById(R.id.img));
     }
 
     /**
@@ -130,7 +135,43 @@ public class BaseAnimalActivity extends BaseActivity{
                     Toast.makeText(BaseAnimalActivity.this, "动画重复", Toast.LENGTH_SHORT).show();
                 }
             });
+    }
 
+    /**
+     * 旋转动画
+     */
+    public void rotateAnimation(){
 
     }
+    /**
+     * 旋转动画
+     * https://blog.csdn.net/lly347705530/article/details/78671696
+     */
+    @SuppressLint("ObjectAnimatorBinding")
+    public void objectAnimator(View view){
+//        objectAnimator = ObjectAnimator.ofFloat(view, "rotation", 0f, 360f);//添加旋转动画，旋转中心默认为控件中点
+//        objectAnimator.setDuration(3000);//设置动画时间
+//        objectAnimator.setInterpolator(new LinearInterpolator());//动画时间线性渐变
+//        objectAnimator.setRepeatCount(ObjectAnimator.INFINITE);
+//        objectAnimator.setRepeatMode(ObjectAnimator.RESTART);
+        objectAnimator.start();
+    }
+    public void pauseObjectAnimator(View view) {
+        objectAnimator.pause();
+    }
+    public void stopObjectAnimator(View view) {
+        objectAnimator.end();
+    }
+
+
+    private void createObjectAnimator(View view){
+        objectAnimator = ObjectAnimator.ofFloat(view, "rotation", 0f, 360f);//添加旋转动画，旋转中心默认为控件中点
+        objectAnimator.setDuration(1000);//设置动画时间
+        objectAnimator.setInterpolator(new LinearInterpolator());//动画时间线性渐变
+        objectAnimator.setRepeatCount(ObjectAnimator.INFINITE);
+        objectAnimator.setRepeatMode(ObjectAnimator.RESTART);
+    }
+
+
+
 }

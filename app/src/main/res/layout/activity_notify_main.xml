@@ -55,6 +55,11 @@
             android:layout_marginBottom="8dp"
             android:text="语音义通知"
             />
+        <Button
+            android:id="@+id/btn_channel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8.0渠道通知"/>
     </LinearLayout>
 
     <TextView
@@ -63,6 +68,12 @@
         android:text="       8.0后的通知总结：通知渠道的通知
          创建一个通知渠道至少需要渠道ID、渠道名称以及重要等级这三个参数"
         />
+    <Button
+        android:id="@+id/btn_create_channel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="创建通知渠道"
+        android:onClick="createChannel"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

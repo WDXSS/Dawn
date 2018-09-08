@@ -1,17 +1,21 @@
 package com.dawndemo.ui.notify;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.dawndemo.R;
 import com.dawndemo.base.BaseActivity;
@@ -50,14 +54,16 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
         mBtnCreate.setOnClickListener(this);
         mBtnTwo.setOnClickListener(this);
         mBtnCustom.setOnClickListener(this);
+        findViewById(R.id.btn_channel).setOnClickListener(this);
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_mi6:
-                defNotify("一般写法","通知的一般写法");
+                defNotify("一般写法", "通知的一般写法");
                 break;
             case R.id.btn_simple:
                 simpleNotify(0);
@@ -69,12 +75,16 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
             case R.id.btn_sound:
                 simpleNotify(1);
                 break;
+            case R.id.btn_channel:
+                channelNotification();
+                break;
         }
     }
 
 
     /**
      * 通常写法
+     *
      * @param title
      * @param text
      */
@@ -105,7 +115,7 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
      * 简单的通知栏
      * Builder(this, ?)
      */
-    private void simpleNotify(int type ) {
+    private void simpleNotify(int type) {
         // Create an explicit intent for an Activity in your app
         Intent intent = new Intent(this, NotifyOpenActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -116,18 +126,18 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
 //      .setContent(RemoteViews)
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentTitle("My notification");
-        if(type == 0){
+        if (type == 0) {
             builder.setContentTitle("My notification");//默认提醒方式
-        }else if(type == 1){
+        } else if (type == 1) {
             builder.setContentTitle("My notification -- MINE");//自定义提醒方式
         }
         builder.setContentText("Much longer text that cannot fit one line...");
         builder.setStyle(new NotificationCompat.BigTextStyle()
                 .bigText("Much longer text that cannot fit one line..."));
-        if(type == 0){
+        if (type == 0) {
             Log.i(TAG, "simpleNotify: 默认提醒");
             addBuilderFlags(builder);//默认提醒方式
-        }else if(type == 1){
+        } else if (type == 1) {
             Log.i(TAG, "simpleNotify: 声音提醒");
             addMineBuilderFlags(builder);//自定义提醒方式
         }
@@ -140,9 +150,9 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
         Notification notification = builder.build();
         addNotificationFlags(notification);
         // notificationId is a unique int for each notification that you must define
-        if(type == 0){
+        if (type == 0) {
             notificationManager.notify(SIMPLE_ID, notification);
-        }else if(type == 1){
+        } else if (type == 1) {
             notificationManager.notify(MINE_ID, notification);
         }
 
@@ -158,14 +168,16 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
 //        notification.flags |= Notification.FLAG_NO_CLEAR;
 
     }
+
     /**
      * 默认提醒方式
+     *
      * @param builder
      */
     private void addBuilderFlags(NotificationCompat.Builder builder) {
 
 //        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT); //优先级 priority
-       builder.setOnlyAlertOnce(false); //设置提醒只执行一次
+        builder.setOnlyAlertOnce(false); //设置提醒只执行一次
         builder.setDefaults(Notification.DEFAULT_SOUND);// 添加默认声音提醒
         // builder.setDefaults(Notification.DEFAULT_LIGHTS);// 添加默认呼吸灯提醒，自动添加FLAG_SHOW_LIGHTS
         builder.setDefaults(Notification.DEFAULT_VIBRATE); //单独震动
@@ -174,9 +186,10 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
 
     /**
      * 自定义提醒方式
+     *
      * @param builder
      */
-    private void addMineBuilderFlags(NotificationCompat.Builder builder){
+    private void addMineBuilderFlags(NotificationCompat.Builder builder) {
 //        builder.setOnlyAlertOnce(true);//设置提醒只执行一次
 //        builder.setPriority(NotificationCompat.PRIORITY_MAX); //优先级 priority
 
@@ -194,7 +207,36 @@ public class NotifyMainActivity extends BaseActivity implements View.OnClickList
 
     //8.0传送门
     public void onPortal(View view) {
-        startActivity(new Intent(this,NotificationTestActivity.class));
+        startActivity(new Intent(this, NotificationTestActivity.class));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void createChannel(View view) {
+        //创建渠道
+        String channelId = "im_chat";
+        String channelName = "IM_";
+        int importance = NotificationManager.IMPORTANCE_HIGH;//重要等级
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        assert notificationManager != null;
+        notificationManager.createNotificationChannel(channel);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void channelNotification() {
+
+        NotificationManager manager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
+        NotificationChannel channel = manager.getNotificationChannel("im_chat");
+        if (channel == null) {
+            Toast.makeText(NotifyMainActivity.this, "创建渠道", Toast.LENGTH_LONG).show();
+            return;
+        }
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "im_chat");
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentTitle("渠道通知");
+        builder.setContentText("渠道通知 内容显示");
+        assert manager != null;
+        manager.notify(1, builder.build());
     }
 }
 
