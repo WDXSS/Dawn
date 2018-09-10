@@ -90,7 +90,6 @@
             android:name=".animal.Keyboard1Activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateHidden"
             />
         <activity android:name=".animal.drag.DragFloatActivity"/>

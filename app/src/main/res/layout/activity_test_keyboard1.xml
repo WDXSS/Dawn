@@ -18,6 +18,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#8900ff00"
         android:gravity="center"
         android:text="全屏状态下测试，上下两个输入框窗体调整"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,23 +27,42 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <EditText
-        android:id="@+id/bottom_edit"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#fff000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="visible"/>
+    <LinearLayout
+        android:id="@+id/layout_bottom_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="弹出软件盘"
+    android:onClick="showKeyboard"
+    />
+        <EditText
+            android:id="@+id/bottom_edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#fff000"
+            android:visibility="visible"/>
+
+        <View
+            android:id="@+id/panel_foot"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#f00F00"
+            />
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#98000000"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_edit"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toTopOf="@+id/layout_bottom_edit"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toTopOf="parent"
         >
 
         <EditText
