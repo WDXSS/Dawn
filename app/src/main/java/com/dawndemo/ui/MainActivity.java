@@ -16,6 +16,7 @@ import com.dawndemo.R;
 import com.dawndemo.animal.TestAnimalActivity;
 import com.dawndemo.animal.base.BaseAnimalActivity;
 import com.dawndemo.animal.drag.DragFloatActivity;
+import com.dawndemo.annotation.AnnotationActivity;
 import com.dawndemo.base.BaseActivity;
 import com.dawndemo.base.BaseAdapter;
 import com.dawndemo.base.BaseViewHolder;
@@ -25,7 +26,7 @@ import com.dawndemo.ui.binding.DataBindingMainActivity;
 import com.dawndemo.ui.notify.NotifyMainActivity;
 import com.dawndemo.ui.service.ServiceActivity;
 import com.dawndemo.ui.zmservice.ZMActivity;
-import com.dawndemo.update.BuglyUpgradeActivity;
+import com.dawndemo.bugly.BuglyUpgradeActivity;
 import com.dawndemo.viewPager.TestViewPagerActivity;
 
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class MainActivity extends BaseActivity {
             "DrawableBackgroundActivity", "NotifyMainActivity", "RetrofitMainActivity",
             "SpanActivity", "TestAnimalActivity", "TestViewPagerActivity",
             "DragFloatActivity", "AddViewActivity", "BaseAnimalActivity",
-            "BuglyUpgradeActivity"};
+            "BuglyUpgradeActivity","AnnotationActivity"};
 
     private String[] des = {"动脑学院学习练习", "BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
             "study service", "测试Service 的回调", "广告位",
@@ -71,14 +72,14 @@ public class MainActivity extends BaseActivity {
             "DataBindingMainActivity", "NotifyMainActivity", "RetrofitMainActivity",
             "SpannerString 学习", "动画和软键盘监听", "viewPager滑动事件拦截",
             "DragFloatActivity 悬浮球", "动态添加View", "基础动画",
-            "测试bugly升级"};
+            "测试bugly升级","注解学习"};
     private Class[] classNames = new Class[]{DNMainActivity.class, NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
             ServiceActivity.class, ZMActivity.class, BannerActivity.class,
             RecyclerActivity.class, DrawableBackgroundActivity.class, TextWatcherActivity.class,
             DataBindingMainActivity.class, NotifyMainActivity.class, RetrofitMainActivity.class,
             SpanActivity.class, TestAnimalActivity.class, TestViewPagerActivity.class,
             DragFloatActivity.class, AddViewActivity.class, BaseAnimalActivity.class,
-            BuglyUpgradeActivity.class};
+            BuglyUpgradeActivity.class, AnnotationActivity.class};
 
 
     @Override

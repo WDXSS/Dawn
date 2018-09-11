@@ -95,7 +95,8 @@
         <activity android:name=".animal.drag.DragFloatActivity"/>
         <activity android:name=".ui.AddViewActivity"/>
         <activity android:name=".animal.base.BaseAnimalActivity"/>
-        <activity android:name=".update.BuglyUpgradeActivity"/>
+        <activity android:name=".bugly.BuglyUpgradeActivity"/>
+        <activity android:name=".annotation.AnnotationActivity"/>
 
         <!--buggly  start-->
         <activity

@@ -1,4 +1,4 @@
-package com.dawndemo.update;
+package com.dawndemo.bugly;
 
 import android.content.Context;
 import android.os.Environment;

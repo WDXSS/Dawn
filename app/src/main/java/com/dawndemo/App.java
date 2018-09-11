@@ -1,12 +1,10 @@
 package com.dawndemo;
 
 import android.app.Application;
-import android.app.Notification;
 import android.util.Log;
 
 import com.androidnetworking.AndroidNetworking;
-import com.dawndemo.update.BuglyUtil;
-import com.tencent.bugly.Bugly;
+import com.dawndemo.bugly.BuglyUtil;
 
 /**
  * Created by zc on 2017/3/30.

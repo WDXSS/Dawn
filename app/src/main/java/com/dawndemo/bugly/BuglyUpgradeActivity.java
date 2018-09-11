@@ -1,4 +1,4 @@
-package com.dawndemo.update;
+package com.dawndemo.bugly;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
