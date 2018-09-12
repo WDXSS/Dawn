@@ -13,6 +13,11 @@ import java.lang.reflect.Field;
 /**
  * Created by zc on 2018/9/11
  * https://blog.csdn.net/PORSCHE_GT3RS/article/details/80304701
+ *
+ * 注解使用：
+ * https://www.jianshu.com/p/fa9368c19115
+ * https://www.jianshu.com/p/1150d3dbf74f
+ *
  */
 public class AnnotationActivity extends BaseActivity{
 
