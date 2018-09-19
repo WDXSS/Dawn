@@ -38,7 +38,6 @@ task clean(type: Delete) {
 ext {
     //统一版本号
     compileSdkVersion = 26
-    buildToolsVersion = '26.0.2'
     minSdkVersion = 21
     targetSdkVersion = 26
     versionCode = 1
@@ -51,6 +50,4 @@ ext {
             supportAppcompat: "com.android.support:appcompat-v7:26.1.0",
             network         : "com.amitshekhar.android:rx2-android-networking:1.0.0"
     ]
-
-
 }
