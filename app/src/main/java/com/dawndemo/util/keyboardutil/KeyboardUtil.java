@@ -225,6 +225,7 @@ public class KeyboardUtil {
         private final int screenHeight;
 
         private boolean isOverlayLayoutDisplayHContainStatusBar = false;
+        private boolean isPortrait;
 
         KeyboardStatusListener(boolean isFullScreen, boolean isTranslucentStatus,
                                boolean isFitSystemWindows,
@@ -358,6 +359,10 @@ public class KeyboardUtil {
             // NavigationBarHeight.
             final int actionBarOverlayLayoutHeight = actionBarOverlayLayout.getHeight() -
                     actionBarOverlayLayout.getPaddingTop();
+            isPortrait = actionBarOverlayLayout.getHeight() >actionBarOverlayLayout.getWidth();
+            Log.i(TAG, "calculateKeyboardShowing: layoutheight = " + actionBarOverlayLayout.getHeight());
+            Log.i(TAG, "calculateKeyboardShowing: layoutwidth = " + actionBarOverlayLayout.getWidth());
+            Log.i(TAG, "screenOrientation:竖屏 = " + isPortrait);
 
             if (KPSwitchConflictUtil.isHandleByPlaceholder(isFullScreen, isTranslucentStatus,
                     isFitSystemWindows)) {

@@ -90,13 +90,41 @@
             android:name=".animal.Keyboard1Activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateHidden"
             />
         <activity android:name=".animal.drag.DragFloatActivity"/>
         <activity android:name=".ui.AddViewActivity"/>
-        <activity android:name=".animal.base.BaseAnimalActivity"></activity>
+        <activity android:name=".animal.base.BaseAnimalActivity"/>
+        <activity android:name=".bugly.BuglyUpgradeActivity"/>
+        <activity android:name=".annotation.AnnotationActivity"/>
+
+        <!--buggly  start-->
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent"/>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.dawndemo.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+        <!--buggly  end-->
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--<uses-permission android:name="android.permission.VIBRATE"/>-->
+
+    <!--buggly start-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <!--buggly end-->
 </manifest>
