@@ -22,7 +22,7 @@ import butterknife.OnClick;
  * Created by zc on 2017/5/11.
  */
 
-public class ServiceActivity extends BaseActivity {
+public class SecondActivity extends BaseActivity {
     private static final String TAG = "ServiceActivity";
     @BindView(R.id.start_service)
     Button mStartService;
@@ -44,16 +44,16 @@ public class ServiceActivity extends BaseActivity {
     private Intent startService;
     private BindService mBindService;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
         ButterKnife.bind(this);
+        mStartActivity.setVisibility(View.GONE);
 
     }
 
-    @OnClick({R.id.start_service, R.id.stop_service, R.id.bind_service, R.id.unbind_service, R.id.rebind_service, R.id.stop_thread, R.id.start_activity,R.id.print_activity})
+    @OnClick({R.id.start_service, R.id.stop_service, R.id.bind_service, R.id.unbind_service, R.id.rebind_service, R.id.stop_thread, R.id.print_activity})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.start_service:
@@ -74,9 +74,6 @@ public class ServiceActivity extends BaseActivity {
             case R.id.stop_thread:
                 stopService();
                 break;
-            case R.id.start_activity:
-                startActivity(new Intent(this, SecondActivity.class));
-                break;
             case R.id.print_activity:
                 mBindService.printlnActivityName();
                 break;
@@ -90,13 +87,16 @@ public class ServiceActivity extends BaseActivity {
     }
 
     private void unbindService() {
-        unbindService(mServiceConnection);
+        if (mServiceConnection != null) {
+            unbindService(mServiceConnection);
+            mServiceConnection = null;
+        }
     }
 
     private void bindService() {
         Intent intent = new Intent(this, BindService.class);
         intent.putExtra("type", "bindService");
-        intent.putExtra("name", "ServiceActivity");
+        intent.putExtra("name", "SecondActivity");
         bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
     }
 
@@ -107,7 +107,7 @@ public class ServiceActivity extends BaseActivity {
     private void startService() {
         startService = new Intent();
         startService.putExtra("type", "startService");
-        startService.putExtra("name", "ServiceActivity");
+        startService.putExtra("name", "SecondActivity");
         startService.setClass(this, StartService.class);
         startService(startService);
 
@@ -115,13 +115,14 @@ public class ServiceActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        if (mServiceConnection != null) {
+            unbindService();
+        }
         super.onDestroy();
 
     }
 
     ServiceConnection mServiceConnection = new ServiceConnection() {
-
-
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -136,7 +137,6 @@ public class ServiceActivity extends BaseActivity {
             Log.i(TAG, "onServiceDisconnected: " + name.toString());
         }
     };
-
 
     private interface Call {
 
