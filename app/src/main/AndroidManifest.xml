@@ -21,7 +21,9 @@
         </activity>
         <activity
             android:name=".ui.NavigationActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".ui.NavigationBarActivity"
             android:screenOrientation="portrait"/>
@@ -106,6 +108,11 @@
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@android:style/Theme.Translucent"/>
+
+        <activity android:name=".ui.lifecycle.SingleTopActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".ui.lifecycle.LifecycleMainActivity"/>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.dawndemo.fileProvider"
@@ -126,7 +133,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_LOGS"/>
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <!--buggly end-->
