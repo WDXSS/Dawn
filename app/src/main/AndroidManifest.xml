@@ -21,7 +21,9 @@
         </activity>
         <activity
             android:name=".ui.NavigationActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".ui.NavigationBarActivity"
             android:screenOrientation="portrait"/>
@@ -33,6 +35,9 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.service.ServiceActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.service.SecondActivity"
             android:screenOrientation="portrait"/>
 
         <service android:name=".ui.service.StartService">
@@ -103,6 +108,11 @@
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@android:style/Theme.Translucent"/>
+
+        <activity android:name=".ui.lifecycle.SingleTopActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".ui.lifecycle.LifecycleMainActivity"/>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.dawndemo.fileProvider"
@@ -114,6 +124,26 @@
         </provider>
 
         <!--buggly  end-->
+        <!--IPC START-->
+        <activity android:name=".ui.ipc.IpcMainActivity"/>
+        <service
+            android:name=".ui.ipc.socket.service.SocketService"
+            android:process=":remote" />
+        <service android:name=".ui.ipc.aidl.BookManagerService"
+                 android:process=":remote"/>
+
+        <activity
+            android:name=".ui.ipc.socket.TcpClientActivity"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category._LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.ipc.aidl.AidlMainActivity"/>
+        <!--IPC end-->
+
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--<uses-permission android:name="android.permission.VIBRATE"/>-->
@@ -123,7 +153,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_LOGS"/>
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <!--buggly end-->

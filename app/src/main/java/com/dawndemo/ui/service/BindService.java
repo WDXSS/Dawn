@@ -22,6 +22,7 @@ public class BindService extends Service {
     public static final String startService = "startService";
 
     private Map<String, Thread> mThreads = new HashMap<>();
+    private String mActivityName;
 
     @Override
     public void onCreate() {
@@ -74,7 +75,9 @@ public class BindService extends Service {
     @Override
     public boolean onUnbind(Intent intent) {
         Log.i(TAG, "onUnbind: ");
-        mThreads.get(bindService).interrupt();
+        if ( mThreads.get(bindService) != null){
+            mThreads.get(bindService).interrupt();
+        }
         return super.onUnbind(intent);
 //        return true;
 
@@ -103,7 +106,10 @@ public class BindService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         Log.i(TAG, "onBind: ");
-        starRun(bindService);
+        mActivityName = intent.getStringExtra("name");
+        String serviceType = intent.getStringExtra("type");
+        Log.i(TAG, "onBind: intent.activityName = "+ mActivityName + ", intent.serviceType = "+ serviceType);
+//        starRun(bindService + mActivityName);
         return new MyBind();
     }
 
@@ -114,7 +120,7 @@ public class BindService extends Service {
                 try {
                     int index = 0;
                     while (true){
-                        sleep(2000);
+                        sleep(10000);
                         printlnTest(index, tag);
                         index ++;
                     }
@@ -133,6 +139,9 @@ public class BindService extends Service {
         Log.i(TAG, "printlnTest: " +  mThreads.get(tag).getName()  + ", index = " + index + ", tag= " + tag);
     }
 
+    public void printlnActivityName(){
+        Log.i(TAG, "printlnActivityName: = "+ mActivityName);
+    }
     public class MyBind extends Binder{
 
           public BindService getService(){

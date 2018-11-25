@@ -23,6 +23,8 @@ import com.dawndemo.base.BaseViewHolder;
 import com.dawndemo.recycler.ui.RecyclerActivity;
 import com.dawndemo.ui.anim.ShareElement1;
 import com.dawndemo.ui.binding.DataBindingMainActivity;
+import com.dawndemo.ui.ipc.IpcMainActivity;
+import com.dawndemo.ui.lifecycle.LifecycleMainActivity;
 import com.dawndemo.ui.notify.NotifyMainActivity;
 import com.dawndemo.ui.service.ServiceActivity;
 import com.dawndemo.ui.zmservice.ZMActivity;
@@ -64,7 +66,8 @@ public class MainActivity extends BaseActivity {
             "DrawableBackgroundActivity", "NotifyMainActivity", "RetrofitMainActivity",
             "SpanActivity", "TestAnimalActivity", "TestViewPagerActivity",
             "DragFloatActivity", "AddViewActivity", "BaseAnimalActivity",
-            "BuglyUpgradeActivity","AnnotationActivity"};
+            "BuglyUpgradeActivity","AnnotationActivity","LifecycleMainActivity",
+            "IpcActivity"};
 
     private String[] des = {"动脑学院学习练习", "BottomNavigationView extends FramentLayout", "need to and view page  fragment ,scroll", "start Activity animal",
             "study service", "测试Service 的回调", "广告位",
@@ -72,14 +75,16 @@ public class MainActivity extends BaseActivity {
             "DataBindingMainActivity", "NotifyMainActivity", "RetrofitMainActivity",
             "SpannerString 学习", "动画和软键盘监听", "viewPager滑动事件拦截",
             "DragFloatActivity 悬浮球", "动态添加View", "基础动画",
-            "测试bugly升级","注解学习"};
+            "测试bugly升级","注解学习","生命周期整理",
+            "跨进程通讯"};
     private Class[] classNames = new Class[]{DNMainActivity.class, NavigationActivity.class, NavigationBarActivity.class, ShareElement1.class,
             ServiceActivity.class, ZMActivity.class, BannerActivity.class,
             RecyclerActivity.class, DrawableBackgroundActivity.class, TextWatcherActivity.class,
             DataBindingMainActivity.class, NotifyMainActivity.class, RetrofitMainActivity.class,
             SpanActivity.class, TestAnimalActivity.class, TestViewPagerActivity.class,
             DragFloatActivity.class, AddViewActivity.class, BaseAnimalActivity.class,
-            BuglyUpgradeActivity.class, AnnotationActivity.class};
+            BuglyUpgradeActivity.class, AnnotationActivity.class,LifecycleMainActivity.class,
+            IpcMainActivity.class};
 
 
     @Override
