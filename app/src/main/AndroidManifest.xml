@@ -142,6 +142,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ipc.aidl.AidlMainActivity"/>
+        <activity android:name=".ui.view.ViewMainActivity"/>
         <!--IPC end-->
 
     </application>
