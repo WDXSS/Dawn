@@ -7,36 +7,9 @@
         android:id="@+id/btn_click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="开始移动"
+        android:text="view 的ScrollTo/BY"
         android:onClick="startScroll"
+        android:textAllCaps="false"
         />
-    <Button
-        android:id="@+id/btn_click2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="开始移动Layout"
-        android:onClick="startScrollLayout"
-        />
-    <LinearLayout
-        android:id="@+id/layout_btn"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:background="#fff000"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:orientation="vertical"
-        >
-        <Button
-            android:id="@+id/btn_scroll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="移动的btn"
-            android:onClick="isLocal"
-            />
-        <com.dawndemo.ui.view.MyButton
-            android:id="@+id/btn_my"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="移动的Mybtn"/>
-    </LinearLayout>
+
 </LinearLayout>

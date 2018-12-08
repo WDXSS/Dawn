@@ -143,6 +143,7 @@
         </activity>
         <activity android:name=".ui.ipc.aidl.AidlMainActivity"/>
         <activity android:name=".ui.view.ViewMainActivity"/>
+        <activity android:name=".ui.view.scroll.ScrollMainActivity"/>
         <!--IPC end-->
 
     </application>
