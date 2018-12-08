@@ -39,4 +39,10 @@ public class ViewMainActivity extends BaseActivity {
     }
 
 
+    public void startMyView(View view) {
+        Intent intent = new Intent();
+        intent.setClass(this,MyViewActivity.class);
+        startActivity(intent);
+
+    }
 }

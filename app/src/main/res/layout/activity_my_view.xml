@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00ff00">
+
+        <com.dawndemo.ui.view.widget.CircleView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:circle_color="#00ff00"
+            android:background="#ff00ff"
+            android:layout_margin="10dp"
+            android:paddingLeft="20dp"/>
+    </FrameLayout>
+</LinearLayout>
