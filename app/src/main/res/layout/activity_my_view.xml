@@ -18,4 +18,17 @@
             android:layout_margin="10dp"
             android:paddingLeft="20dp"/>
     </FrameLayout>
+
+    <com.dawndemo.ui.view.MyEdittext
+        android:id="@+id/btn_0001"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textAllCaps="false"
+        android:saveEnabled="true"
+
+        />
+    <EditText
+        android:id="@+id/edit100"
+        android:layout_width="100dp"
+        android:layout_height="50dp" />
 </LinearLayout>
