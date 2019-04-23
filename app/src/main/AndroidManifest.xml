@@ -144,7 +144,8 @@
         <activity android:name=".ui.ipc.aidl.AidlMainActivity"/>
         <activity android:name=".ui.view.ViewMainActivity"/>
         <activity android:name=".ui.view.scroll.ScrollMainActivity"/>
-        <activity android:name=".ui.view.MyViewActivity" />
+        <activity android:name=".ui.view.MyViewActivity"
+            />
         <!--IPC end-->
 
     </application>

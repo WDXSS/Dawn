@@ -2,6 +2,7 @@ package com.dawndemo.ui.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -50,4 +51,15 @@ public class MyButton extends Button {
     }
 
 
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Log.d(TAG, "view -----onSaveInstanceState: ");
+        return super.onSaveInstanceState();
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        Log.d(TAG, "view ---- onRestoreInstanceState: ");
+        super.onRestoreInstanceState(state);
+    }
 }
